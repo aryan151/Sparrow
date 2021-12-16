@@ -1,0 +1,348 @@
+.investingtopontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid black 1px;
+    height: 600px;
+    background-color: rgb(195, 245, 60);
+    border-bottom: solid black 1px;
+    padding: 0 375px;
+    gap: 6%;
+  }
+  
+  .investing-for-everyone-desc {
+    font-size: 24px;
+    line-height: 35px;
+    font-weight: 500;
+  
+  }
+  
+  
+  .investingtopinfo {
+    display: flex;
+    flex-direction: column;
+    width: 442px;
+    margin: 0px 0px 0px 190px;
+  }
+  
+  
+  .investingtopinfo > h1 {
+    font-weight: 500;
+    font-size: 52px;
+    width: 350px;
+    margin: 0px;
+  }
+  
+  .investingtopinfo > .sign-up-button {
+    width: fit-content;
+    padding: 13px 45px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+  }
+  
+  .investingtopinfo > .sign-up-button:hover {
+      cursor: pointer;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.835);
+    color: white;
+  }
+  
+  
+  .main-img {
+    width: 50%;
+  }
+  
+  .fractional-shares-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f0ebe6;
+    width: 50%;
+    max-width: 850px;
+  }
+  
+  .fractional-shares-content {
+    display: flex;
+    justify-content: center;
+    height: 365px;
+    gap: 60px;
+    width: 100%;
+    /* padding: 30px; */
+  }
+  
+  .fractional-shares-info {
+    font-size: larger;
+  }
+  
+  .fractional-shares-info {
+    width: 100%;
+  }
+  
+  .container-row {
+    display: flex;
+    background-color: #f0ebe6;
+    justify-content: center;
+    align-items: center;
+    border-top: black solid 1px;
+    gap: 4em;
+  }
+  
+  .img-container {
+    margin: 0px 9px;
+    width: 457px;
+    height: 520px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .img-container > img {
+    width: 375px;
+    height: 500px;
+    object-fit: contain;
+  }
+  
+  .fractional-shares-info > h4 {
+    font-weight: 600;
+  }
+  
+  .center-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .center-div-2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    /* padding: 0 16.5%; */
+  }
+  
+  .ipo-container {
+    width: 100%;
+    padding: 2%;
+    max-width: 600px;
+  }
+  
+  .ipo-header > h1 {
+    font-weight: 500;
+    font-size: 2.2em;
+  }
+  
+  .ipo-header > p {
+    color: #6e767c;
+    font-size: 1.15em;
+  }
+  
+  .ipo-info-text > h3 {
+    font-weight: 450;
+  }
+  
+  .ipo-info-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .ipo-main-img {
+    height: 75%;
+    width: 594px;
+  }
+  
+  .ipo-content {
+    width: 50%;
+  }
+  
+  .ipo-info-img {
+    width: 40px;
+    height: auto;
+  }
+  
+  .tools-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    background-color: black;
+    color: white;
+  }
+  
+  .ipo-access-main-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .tools-buttons-container {
+    display: flex;
+    flex-direction: column;
+    padding: 90px;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0.1rem;
+  }
+  
+  .tools-buttons-container > button {
+    font-size: 20px;
+    font-weight: 300;
+  }
+  
+  .tool-button-active,
+  .tool-button {
+    font-size: 20px;
+  }
+  
+  .tools-info {
+    width: 25%;
+  }
+  
+  .tool-info > h1 {
+    font-size: 54px;
+    font-weight: 450;
+    color: white;
+  }
+  
+  .tool-info > p {
+    font-size: 18px;
+    color: white;
+  }
+  
+  .fancy-phone-img {
+    padding: 50px 0;
+    max-width: 70%;
+  }
+  
+  .tool-button {
+    background-color: black;
+    align-items: center;
+    border: none;
+    color: grey;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .tool-button-active {
+    background-color: black;
+    align-items: center;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .tool-button:hover {
+    color: #2eda12;
+  }
+  
+  .tool-img {
+    width: 250px;
+    height: 500px;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .tool-img:target {
+    width: 0px;
+    height: 0px;
+  }
+  
+  .par-tools {
+    color: white;
+  }
+  
+  .tools-info-container {
+    width: 75%;
+    display: flex;
+    gap: 15%;
+  }
+  
+  .info-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    gap: 15%;
+  }
+  
+  .footer-contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  
+  .img-1 {
+    width: 650px;
+    margin-bottom: 33px;
+    position: absolute;
+  }
+  
+  .video-1 {
+    border: 1px solid transparent;
+    padding-top: 26px;
+    width: 650px;
+  }
+  
+  .video-img {
+    position: absolute;
+    width: 620px;
+    top: 26px;
+  }
+  
+  .home-video-1 {
+    margin-left: 9px;
+    margin-right: 9px;
+    width: calc(58.333% - 18px);
+    display: block;
+    visibility: visible;
+    border: none;
+  }
+  
+  .home-video-2 {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+  }
+  
+  .home-video-3 {
+    display: flex;
+    min-height: 500px;
+    min-width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    border: transparent;
+  }
+  
+  .footer-contact-info {
+    display: flex;
+    gap: 45px;
+  }
+   
+  
+  .Link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .fractional-shares-container-compact {
+    display: none;
+  }
