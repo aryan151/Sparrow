@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 
-class User(db.Model, UserMixin):
+class User(db.Model, UserMixin): 
     __tablename__ = 'users'  
 
     id = db.Column(db.Integer, primary_key=True)
@@ -14,9 +14,11 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
+    watchlists = db.relationship('Watchlist', back_populates='user')
+    assets = db.relationship('Asset', back_populates='user')
     @property
     def password(self):
-        return self.hashed_password
+        return self.hashed_password 
 
     @password.setter
     def password(self, password):
