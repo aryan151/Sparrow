@@ -6,7 +6,7 @@ class Asset(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    symbol = db.Column(db.String(10), nullable=False)
+    ticker = db.Column(db.String(10), nullable=False)
     shares = db.Column(db.Float, nullable=False)
     average = db.Column(db.Float, nullable=False)
 
@@ -15,8 +15,8 @@ class Asset(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'user_id': self.user_id,
-            'symbol': self.symbol,
+            'user_id': self.user_id,  
+            'ticker': self.ticker,
             'shares': self.shares,
             'average': self.average
         }
