@@ -1,0 +1,127 @@
+.search-bar-outer-container {
+    max-width: 480px;
+    width: 35%;
+    border: var(--clr-border);
+    border-radius: 4px;
+    z-index: 400;
+    background-color: var(--bp-bg);
+  }
+  
+  .filter-shadow {
+    box-shadow: 0px 12px 24px rgba(0,0,0,0.06), 0px -12px 24px rgba(0,0,0,0.02);
+  }
+  
+  .filteredStocks {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 19.3rem;
+    max-width: 480px;
+    width: calc(35% - 7px);
+    background-color: var(--clr-bp-bg);
+    color: var(--clr-font);
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    border: var(--clr-border);
+    border-top: none;
+    transform: translateX(-.9px);
+    margin-top: -1.4px;
+    z-index: -1;
+  }
+  
+  .filteredStocks::-webkit-scrollbar {
+    display: none;
+  }
+  
+  
+  .search-results {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin: 0;
+    color: var(--clr-font);
+    font-size: .8em;
+    font-weight: 500;
+    padding: 10px;
+  }
+  
+  .sr-container1 {
+    width: 20%;
+  }
+  
+  .sr-container2 {
+    width: 50%
+  }
+  
+  .sr-container1 > p, .sr-container2 > p {
+    margin:0;
+  } 
+  
+  .search-results:hover {
+    background-color: var(--clr-search-hover);
+  }
+  
+  .search-bar {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    font-size: 13px;
+    line-height: 20px;
+    height: 34px;
+    z-index: 400;
+    background-color: var(--clr-bp-bg);
+  }
+  
+  .search-bar-outer-container:hover {
+    box-shadow: var(--shadow);
+  }
+  
+  .search-input:focus {
+    outline: none;
+  }
+  
+  .search-input {
+    width: 100%;
+    border: none;
+    height: 100%;
+    background-color: var(--clr-bp-bg);
+    color: var(--clr-font);
+  } 
+  
+  .search-icon {
+    font-size: 22px;
+    z-index: 400;
+    color: #697278;
+  }
+  
+  .search-label {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    height: 100%;
+    z-index: 400;
+    background-color: var(--clr-bp-bg);
+  }
+  
+  .no-border {
+    border-bottom: none;
+    box-shadow: none;
+  }
+  
+  .no-border:hover {
+    box-shadow: none;
+  }
+  
+  .filter-label {
+    color: #697278;
+    padding-left: 10px;
+  }
+  
+  .span-colored {
+    color: red; 
+  }

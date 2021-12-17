@@ -10,6 +10,7 @@ import User from './components/User';
 import Splash from './components/SplashPage';
 import SingleStock from './components/SingleStock'
 import Dash from './components/Dashboard'  
+import {fetchAllStocks} from './store/stocks'
 import { authenticate } from './store/session';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(fetchAllStocks())
       setLoaded(true);
     })();
   }, [dispatch]);
