@@ -3,129 +3,98 @@ const UPDATE_USER_LIST = 'userLists/UPDATE_USER_LIST';
 const DELETE_USER_LIST = 'userLists/DELETE_USER_LIST';
 const ADD_USER_LIST = 'userLists/ADD_USER_LIST'; 
 
-
-const setUserListsAction = (lists) => {
+ 
+const setUserListsAction = (watchlists) => {
     return {
         type: SET_USER_LISTS,
-        lists
+        watchlists  
     };
 };
 
-const updateUserListAction = (list) => {
+const updateUserListAction = (watchlist) => {
     return {
         type: UPDATE_USER_LIST,
-        list
+        watchlist
     };
 };
 
-const deleteUserListAction = (listId) => {
+const deleteUserListAction = (watchlistId) => {
     return {
-        type: DELETE_USER_LIST,
-        listId
+        type: DELETE_USER_LIST,    
+        watchlistId
     };
 };
 
-const addUserListAction = (list) => {  
+const addUserListAction = (watchlist) => {    
     return {
-        type: ADD_USER_LIST,
-        list
+        type: ADD_USER_LIST, 
+        watchlist
     };
 };
  
 
 
 export const setUserLists = (userId) => async (dispatch) => {
-const res = await fetch(`/api/users/${userId}/lists/`);
-const lists = await res.json();
-dispatch(setUserListsAction(lists));
+const res = await fetch(`/api/users/${userId}/watchlists/`);
+const watchlists = await res.json();
+dispatch(setUserListsAction(watchlists));    
 };
 
-export const updateUserList = (list) => async (dispatch) => {
-const res = await fetch(`/api/lists/${list.id}/`, {
+export const updateUserList = (watchlist) => async (dispatch) => {
+const res = await fetch(`/api/watchlists/${watchlist.id}/`, {
     method: "PATCH",
     headers: {
         "Content-Type": "application/json"
     },
-    body: JSON.stringify(list)
+    body: JSON.stringify(watchlist)
 });
 const updatedList = await res.json();
-dispatch(updateUserListAction(updatedList));
+dispatch(updateUserListAction(updatedList));  
 };
 
-export const deleteUserList = (listId) => async (dispatch) => {
-await fetch(`/api/lists/${listId}/`, {
+export const deleteUserList = (watchlistId) => async (dispatch) => {
+await fetch(`/api/watchlists/${watchlistId}/`, {
     method: "DELETE"
 });
-dispatch(deleteUserListAction(listId));
+dispatch(deleteUserListAction(watchlistId));
 };
 
-export const addUserList = (list) => async (dispatch) => {
-const res = await fetch(`/api/users/${list.user_id}/lists/`, {
+export const addUserList = (watchlist) => async (dispatch) => {
+const res = await fetch(`/api/users/${watchlist.user_id}/watchlist/`, {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
     },
-    body: JSON.stringify(list)
+    body: JSON.stringify(watchlist)   
 });
 const newList = await res.json();
 dispatch(addUserListAction(newList));
 };
 
-export const addListSymbol = (listId, symbol) => async (dispatch) => {
-const res = await fetch(`/api/lists/${listId}/listsymbols/`, {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({list_id: listId, symbol})
-});
-const listSymbol = await res.json();
-dispatch(addListSymbolAction(listSymbol));
-};
-
-export const deleteListSymbol = (listSymbol) => async (dispatch) => {
-const {id, listId, symbol} =listSymbol
-await fetch(`/api/listsymbols/${id}/`, {
-    method: "DELETE"
-});
-dispatch(deleteListSymbolAction({listId, symbol}));
-};
-
-/* ----------------------------------------------------------------------- */
-/* -----------------------Initial State & Reducer------------------------- */
-/* ----------------------------------------------------------------------- */
 
 const initialState = {}
 
-const userListsReducer = (state=initialState, action) => {
+const watchListsReducer = (state=initialState, action) => {
 let newState;
 switch (action.type) {
     case SET_USER_LISTS:
-        newState = {...action.lists}
+        newState = {...action.watchlists} 
         return newState;
     case UPDATE_USER_LIST:
         newState = {...state}
-        newState[action.list.id] = action.list
+        newState[action.watchlist.id] = action.watchlist
         return newState;
     case DELETE_USER_LIST:
-        newState = {...state}
-        delete newState[action.listId]
+        newState = {...state}  
+        delete newState[action.watchlistId]
         return newState;
     case ADD_USER_LIST:
-        newState = {...state}
-        newState[action.list.id] = action.list
+        newState = {...state}  
+        newState[action.watchlist.id] = action.watchlist
         return newState;
-    case ADD_LIST_SYMBOL:
-        newState = {...state}
-        newState[action.data.listId].symbols = {...newState[action.data.listId].symbols, [action.data.symbol]: action.data}
-        return newState;
-    case DELETE_LIST_SYMBOL:
-        newState = {...state}
-        delete newState[action.data.listId].symbols[action.data.symbol]
-        return newState
     default:
         return state;
 }
 }
 
-export default userListsReducer;
+export default watchListsReducer;
