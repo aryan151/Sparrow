@@ -25,7 +25,7 @@ const deleteUserListAction = (listId) => {
     };
 };
 
-const addUserListAction = (list) => {
+const addUserListAction = (list) => {  
     return {
         type: ADD_USER_LIST,
         list
@@ -33,9 +33,6 @@ const addUserListAction = (list) => {
 };
  
 
-/* ----------------------------------------------------------------------- */
-/* --------------------------------Thunks--------------------------------- */
-/* ----------------------------------------------------------------------- */
 
 export const setUserLists = (userId) => async (dispatch) => {
 const res = await fetch(`/api/users/${userId}/lists/`);
