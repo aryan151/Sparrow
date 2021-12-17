@@ -1,38 +1,56 @@
-
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import {useState} from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useLocation } from 'react-router-dom';
+import LogoutButton from './auth/LogoutButton' 
+// import SearchBar from '../SearchBar/SearchBar';
+import './NavBar.css'
 
 const NavBar = () => {
-  return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul>
-    </nav>
-  );
+  const location = useLocation();
+  const dispatch = useDispatch();
+
+  const isLoginPage = location.pathname === '/login';
+  const isSignUpPage = location.pathname === '/Sign-up';
+
+  const session = useSelector(state => state.session);
+  
+
+  if (isLoginPage || isSignUpPage) {
+    return null
+  } else {
+    return (
+      <nav>
+        {
+          !session.user ?
+            (
+              <>
+                <NavLink to='/' exact={true} activeClassName='active'>
+                  <div className='logo'>
+                    <p>Sparrow</p>
+                  </div>
+                </NavLink>
+                <div class="user-actions-container">
+                  <NavLink className="login-button" to='/login' exact={true} activeClassName='active'>
+                    Login
+                  </NavLink>
+                  <NavLink className="sign-up-button" to='/sign-up' exact={true} activeClassName='active'>
+                    Sign Up
+                  </NavLink>
+                </div>
+              </>
+            )
+            :
+            <div className='nav-content-container'>
+              {/* <SearchBar /> */}
+              <div className='navbar-buttons'>
+                <LogoutButton/>
+              </div>
+            </div>
+        }
+      </nav>
+    );
+  }
+
 }
 
 export default NavBar;
