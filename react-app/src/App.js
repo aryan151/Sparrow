@@ -8,6 +8,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import Splash from './components/SplashPage';
+import SingleStock from './components/SingleStock'
+import Dash from './components/Dashboard'  
 import { authenticate } from './store/session';
 
 function App() {
@@ -23,7 +25,7 @@ function App() {
 
   if (!loaded) {
     return null;
-  }
+  }  
 
   return (
     <BrowserRouter>
@@ -44,9 +46,12 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+        <ProtectedRoute path='/dash' exact={true} >
+          <Dash/> 
         </ProtectedRoute>
+        <ProtectedRoute path='/stocks/:ticker'>
+            <SingleStock/>
+          </ProtectedRoute>  
       </Switch>
     </BrowserRouter>
   );
