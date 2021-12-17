@@ -2,7 +2,7 @@ import {useState} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton' 
-// import SearchBar from '../SearchBar/SearchBar';
+import Search from './Search';
 import './NavBar.css'
 
 const NavBar = () => {
@@ -40,8 +40,14 @@ const NavBar = () => {
               </>
             )
             :
+            
             <div className='nav-content-container'>
-              {/* <SearchBar /> */}
+              <NavLink to='/dash' exact={true} activeClassName='active'>
+            <div className='logo'>
+              <p>Sparrow</p>
+            </div>
+            </NavLink>
+              <Search />
               <div className='navbar-buttons'>
                 <LogoutButton/>
               </div>
