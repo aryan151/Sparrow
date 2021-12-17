@@ -1,8 +1,9 @@
 const SET_USER_LISTS = 'userLists/SET_USER_LISTS';
+const ADD_USER_LIST = 'userLists/ADD_USER_LIST';   
 const UPDATE_USER_LIST = 'userLists/UPDATE_USER_LIST';
 const DELETE_USER_LIST = 'userLists/DELETE_USER_LIST';
-const ADD_USER_LIST = 'userLists/ADD_USER_LIST'; 
 
+ 
  
 const setUserListsAction = (watchlists) => {
     return {
