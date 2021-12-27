@@ -1,1 +1,124 @@
-/* TODO Add site wide styles */
+* {
+    font-family: "Barlow";
+  }
+  
+  .light {
+    --clr-bg: #ffffff;
+    --clr-bg-alt: #f5f5f5;
+  
+    --clr-bp-bg: #ffffff;
+    --clr-bp-bg-hover: #ffffff;
+  
+    --clr-font: rgb(0, 0, 0);
+    --clr-font-alt: rgba(0, 0, 0, .5);
+  
+    --clr-border: 1px solid #E3E9ED;
+    --clr-border-focus: #ffffff;
+    --clr-input-hover: #ffffff;
+  
+    --clr-button-hover-pos: #2fd315;
+    --clr-button-hover-neg: #dc4600;
+  
+    --clr-primary: #2eda12;
+    --clr-primary-hover: rgba(0, 180, 5, 1);
+    --clr-secondary: #FE5001;
+  
+    --clr-tooltip-time: #A9AFB1;
+    --clr-tooltip: #A9AFB1;
+  
+    --clr-bns-input: #F4F8FA;
+  
+    --shadow: 0px 4px 4px rgba(0, 0, 0, 0.04);
+    --clr-test:#00C805;
+  
+    --clr-atl-hover-pos: rgba(46, 218, 18, .4);
+    --clr-atl-hover-neg: rgba(220, 70, 0, .4);
+  
+    --atl-emoji-bg: #F4F8FA;
+  
+    --clr-watchlist-hover: #f5f5f5 ;
+  
+    --clr-search-hover: #f5f5f5;
+  }
+  
+  .dark {
+    --clr-bg: black;
+    --clr-bg-alt: #2a2a2a;
+  
+    --clr-bp-bg: #2a2a2a;
+    --clr-bp-bg-hover: #2a2a2a;
+  
+    --clr-font: rgb(255, 255, 255);
+    --clr-font-alt:  rgba(255, 255, 255, .5);
+  
+    --clr-border: 1px solid #30363A;
+    --clr-border-focus: 1px solid #5dd8ff;
+    --clr-input-hover: black;
+  
+    --clr-button-hover-pos: #74dfff;
+    --clr-button-hover-neg: #ff6b26;
+  
+    --clr-primary: #5dd8ff;
+    --clr-secondary: #FE5001;
+  
+    --clr-bns-input: #30363A;
+  
+    --clr-tooltip-time: #919EA5 ;
+    --clr-tooltip: #7A868C ;
+  
+    --shadow: 0px 4px 4px rgba(255, 255, 255, 0.05);
+  
+    --clr-atl-hover-pos: rgba(93, 216, 255, .4);
+    --clr-atl-hover-neg: rgba(255, 107, 38, .4);
+  
+    --atl-emoji-bg: #30363A ;
+  
+    --clr-watchlist-hover: #30363a ;
+    --clr-search-hover: #43474a;
+  }
+  
+  button {
+    cursor: pointer;
+    border: none;
+  }
+  
+  details > summary {
+    list-style: none;
+  }
+  
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--clr-font);
+  }
+  
+  h1,
+  h2,
+  h3,
+  p,
+  summary,
+  button,
+  span {
+    color: var(--clr-font);
+  }
+  
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  
+  body{
+    margin: 0;
+  }
+  .bold-p {
+    font-weight: 500;
+  }
