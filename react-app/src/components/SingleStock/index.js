@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";      
 import { useParams } from 'react-router-dom'
 
 function SingleStock () {
@@ -7,7 +7,7 @@ function SingleStock () {
     return (
         <div>
         <p> single stock</p>   
-        <p>{ticker}</p>
+        <p>{ticker}</p>  
         </div>
     )
 }
