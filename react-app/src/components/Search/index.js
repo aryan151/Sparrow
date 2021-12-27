@@ -80,7 +80,7 @@ function Search () {
           <div className={showFilter ? `filteredStocks filter-shadow` : 'filteredStocks'} >
             <p className='filter-label'>Stocks</p> 
             {filteredStocks.map((stock) => (
-              <Link className="search-results" to={`/stocks/${stock.ticker}`} onClick={clearSearch}>
+              <Link className="search-results" to={`/stocks/${stock.ticker}`} onClick={clearSearch} key={stock.ticker}>
                 <div className='sr-container1'>
                   <p><span  className='span-colored'>{letterColoring(stock)['tickerMatch']}</span><span>{letterColoring(stock)['tickerRest']}</span></p>
                 </div>
