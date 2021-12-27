@@ -29,7 +29,7 @@ const NavBar = () => {
                     <p>Sparrow</p>
                   </div>
                 </NavLink>
-                <div class="user-actions-container">
+                <div className="user-actions-container">  
                   <NavLink className="login-button" to='/login' exact={true} activeClassName='active'>
                     Login
                   </NavLink>
