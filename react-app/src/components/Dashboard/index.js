@@ -1,31 +1,45 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import {addUserList} from '../../store/watchLists'
+import { setUserAssets } from '../../store/userAssets';  
 import Watchlist from '../WatchList';  
+import Main from '../SingleStock/StockChart/main';      
+import Resolution from '../SingleStock/ChartSize';  
+import ReactLoading from 'react-loading'
 import { AiOutlinePlus } from 'react-icons/ai' 
+import './dash.css'  
+
+
 function Dash () {
     const dispatch = useDispatch();
-    const user = useSelector(state => state.session);
-
+    const user = useSelector(state => state?.session?.user);          
+    const graphData = useSelector(state => state?.userAssets?.graphData)  
+    let isPos = graphData?.[graphData.length - 1]['%'][0] === '+' ? 'pos' : 'neg'  
+    const [resolution, setResolution] = useState('D')  
     const [showNewList, setShowNewList] = useState(false)
-    const [newListName, setNewListName] = useState('')   
+    const [newListName, setNewListName] = useState('')     
 
     function createNewList() {
         dispatch(addUserList({
             user_id: user.id,
-            watchlist_name: newListName
+            watchlist_name: newListName  
         }))
         setNewListName('')
         setShowNewList(false)
     }
 
+    useEffect(() => {
+        (async () => {
+            await dispatch(setUserAssets(user.id, resolution))
+        })()
+    }, [dispatch, resolution]);
+
     return (
     <div className={`main-body`}>
         <div className='main-wrapper'>
-            <div className={`main-content`}>
-            <p>Graph </p>
-            <p>Toggle</p>
-            <p>Buying Power</p> 
+            <div className={`main-content`}> 
+            {graphData ? <Main graphData={graphData} isPos={isPos}/> : <ReactLoading type={"spin"} color={'var(--clr-secondary)'} height={"20%"} width={"20%"} />}
+            <Resolution resolution={resolution} setResolution={setResolution} isPos={isPos}/> 
             <p>Stories</p> 
             </div>
             <div className={`watchlist-container`}>
