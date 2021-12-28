@@ -86,8 +86,8 @@ function SingleStock () {
               </div>
             </div>
             <div className="bns-container">
-            <BuyOrSell  
-                symbol={ticker}
+            <BuyOrSell    
+                ticker={ticker}
                 price={currentPrice.price}
                 isPos={isPos}
               />  
@@ -97,7 +97,7 @@ function SingleStock () {
       ) : (
         <div className="loading-screen">
           <ReactLoading
-            type={"bars"}
+            type={"balls"}
             color={"var(--clr-secondary)"}
             height={"10%"}
             width={"10%"}
