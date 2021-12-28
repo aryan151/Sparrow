@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom'
 import ReactLoading from 'react-loading' 
 import Main from "./StockChart/main";  
 import Resolution from './ChartSize/index'  
-import {setCurrentStock} from '../../store/currentStock'
+import KeyStatistics from './StockStats/keystats'
+import {setCurrentStock} from '../../store/currentStock'  
 import './singlestock.css'
 
 
@@ -13,12 +14,23 @@ function SingleStock () {
     const {ticker} = useParams() 
 
     const [resolution, setResolution] = useState('D');
+    const [readMore, setReadMore] = useState(false);  
 
     const {graphData, stockInfo, stockStats, currentPrice} = useSelector(state => state.currentStock)
     let isPos = graphData?.[graphData.length - 1]['%'][0] === '+' ? 'pos' : 'neg'
+
+    const description = stockInfo?.description
+    const shortDescription = description?.split(' ').slice(0, 30).join(' ')
+    const moreDesctiption = description?.split(' ').slice(30).join(' ')
+
+    const toggleReadMore = () => {
+        setReadMore(!readMore)
+      }  
+
+
     useEffect(()=>{
         (async ()=>{
-          await dispatch(setCurrentStock(ticker, resolution))
+          await dispatch(setCurrentStock(ticker, resolution))  
         })()
       },[resolution, ticker])  
 
@@ -50,10 +62,26 @@ function SingleStock () {
                 resolution={resolution}
                 setResolution={setResolution}
                 isPos={isPos}
-              />  
+              /> 
+                <div className="about-section">
+                <p className="sa-header">About</p>
+                {moreDesctiption ? (
+                  <p className="sa-about">
+                    {shortDescription} {!readMore ? "..." : moreDesctiption}
+                    <span
+                      className={`${isPos}-read-more`}
+                      onClick={toggleReadMore}
+                    >
+                      {readMore ? "   View Less" : "   View More"}
+                    </span>
+                  </p>
+                ) : (
+                  <p className="sa-about">{shortDescription}</p>
+                )}
+              </div> 
               <div className="about-section">
                 <p className="sa-header">Key Statistics</p>
-
+                <KeyStatistics stockStats={stockStats} />  
               </div>
             </div>
             <div className="bns-container">
