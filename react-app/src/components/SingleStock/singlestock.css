@@ -156,3 +156,186 @@
 .key-stat-title{
     font-size: .9em;
 }
+
+/* buy sell module css: */ 
+
+.bns-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    align-self: flex-start;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+    width: 25%;
+    max-width: 280px;
+    min-width: 280px;
+}
+
+.bns-wrapper{
+    width: 100%;
+    background-color: var(--clr-bp-bg);
+    box-shadow: var(--shadow);
+    border: var(--clr-border);
+    border-radius: 5px;
+
+}
+
+.bns-top{
+    display: flex;
+    padding: 0px 50px;
+    justify-content: space-between;
+    font-size: 1.2em;
+    font-weight: 500;
+    border-bottom: var(--clr-border);
+}
+.bns-click{
+    cursor: pointer;
+}
+
+.pos-bns{
+    color: var(--clr-primary);
+    border-bottom: 2px solid var(--clr-primary);
+    padding-bottom: 15px;
+    margin-bottom: -1px;
+    cursor: pointer;
+}
+.neg-bns{
+    color: var(--clr-secondary);
+    border-bottom: 2px solid var(--clr-secondary);
+    padding-bottom: 15px;
+    margin-bottom: -1px;
+    cursor: pointer;
+}
+
+.bns-shares{
+    display: flex;
+    margin: 10px 20px 0px 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bns-shares>input{
+    background-color: var(--clr-bns-input);
+    text-align: right;
+    height: 36px;
+    width: 82px;
+    border-radius: 3px;
+    padding-right: 15px;
+}
+
+.bns-market-price{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+    font-weight: 700;
+    border-bottom: var(--clr-border);
+}
+
+.pos-mark-price{
+    color: var(--clr-primary);
+    font-weight: 300;
+}
+.neg-mark-price{
+    color: var(--clr-secondary);
+    font-weight: 300;
+}
+
+.bns-estimation{
+    display: flex;
+    margin: 0px 20px;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.bns-complete-order{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    border-bottom: var(--clr-border);
+}
+
+.bns-complete-order>button{
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 5px;
+    font-size: .8em;
+    font-weight: 600;
+
+}
+
+.pos-bns-button{
+    background-color: var(--clr-primary);
+}
+.neg-bns-button{
+    background-color: var(--clr-secondary);
+}
+
+.pos-bns-button:hover{
+    background-color: var(--clr-button-hover-pos);
+}
+.neg-bns-button:hover{
+    background-color: var(--clr-button-hover-neg);
+}
+
+
+
+.pos-bns-bp{
+    color: var(--clr-primary);
+}
+.neg-bns-bp{
+    color: var(--clr-secondary);
+}
+
+.bns-bp-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: .9em;
+}
+
+.bns-bp-error{
+    color: var(--clr-secondary);
+    font-weight: 700;
+}
+
+.pos-sell-all{
+    color: var(--clr-primary);
+    cursor: pointer;
+    font-weight: 600;
+}
+.neg-sell-all{
+    color: var(--clr-secondary);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.pos-atl-button, .neg-atl-button{
+    background-color: var(--clr-bg);
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 100%;
+    border: 5px;
+}
+
+.pos-atl-button{
+    border: 2px solid var(--clr-primary);
+    color: var(--clr-primary);
+}
+.neg-atl-button{
+    border: 2px solid var(--clr-secondary);
+    color: var(--clr-secondary);
+}
+
+.pos-atl-button:hover{
+    background-color: var(--clr-atl-hover-pos);
+}
+.neg-atl-button:hover{
+    background-color: var(--clr-atl-hover-neg);
+}
