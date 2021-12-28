@@ -82,12 +82,9 @@ export const deleteUserAsset = (asset) => async (dispatch) => {
     await fetch(`/api/assets/${asset.id}/`, {
         method: "DELETE"
     });   
-    dispatch(deleteAssetAction(asset.ticker));  
+    dispatch(deleteAssetAction(asset.ticker));    
 };
 
-/* ----------------------------------------------------------------------- */
-/* -----------------------Initial State & Reducer------------------------- */
-/* ----------------------------------------------------------------------- */
 
 const initialState = {}
 
