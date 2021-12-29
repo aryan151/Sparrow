@@ -17,7 +17,7 @@ def watchlists(id):
         db.session.commit()
         return 'ok'
 
-@watchlist_routes.route('/<int:id>/watchlist_ticker/', methods=['POST'])
+@watchlist_routes.route('/<int:id>/watchlist_ticker/', methods=['POST'])  
 def watchlist_ticker(id):  
     body = request.json
     currentticker = WatchlistTicker(

@@ -122,7 +122,7 @@ function AddStock ({ticker, userId, isPos, stockName}){
                 ))}
                 <button className={`${isPos}-atl-save-btn`} onClick={handleSubmit}>Save Changes</button>
                 </div>
-            </Modal>
+            </Modal>    
             )}
       </div>
     );
