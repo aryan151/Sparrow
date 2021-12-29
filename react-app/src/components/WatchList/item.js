@@ -9,14 +9,15 @@ import ItemData from "./itemchart";
 function Item ({list, listName=false , isStocks=false, isPos}){ 
     const dispatch = useDispatch();    
     const [showList, setShowList] = useState(true)
-    const refListLength = Object.keys(list?.tickers).length
+    const refListLength = Object.keys(list?.tickers).length  
     
     let tickers = Object.keys(list?.tickers);  
+    
 
     useEffect(() => {
-        (async () => {    
-           await dispatch(setWatchListStocks(tickers))
-        })();
+     
+            dispatch(setWatchListStocks(tickers))
+      
     },[dispatch, tickers])        
    
 
@@ -31,7 +32,7 @@ function Item ({list, listName=false , isStocks=false, isPos}){
         </div>  
         {showList && (
           <>
-          {console.log(tickers)}            
+                   
             {tickers &&
               tickers.map((ticker) => (    
                 // <ItemData  

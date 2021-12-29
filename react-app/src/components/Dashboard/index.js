@@ -6,7 +6,8 @@ import Watchlist from '../WatchList';
 import Main from '../SingleStock/StockChart/main';      
 import Resolution from '../SingleStock/ChartSize';  
 import ReactLoading from 'react-loading'
-import StockList from '../WatchList/stocklist';
+import StockList from '../WatchList/stocklist';  
+import AllList from '../WatchList/alllists';
 import { AiOutlinePlus } from 'react-icons/ai' 
 import './dash.css'  
 
@@ -59,7 +60,7 @@ function Dash () {
                     </div>
 
                 )}
-                <Watchlist/> 
+                <AllList/> 
             </div>
         </div>
     </div>
