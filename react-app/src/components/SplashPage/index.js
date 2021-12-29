@@ -196,7 +196,8 @@ function Splash () {
                 </div>
             </div>
             <div className="footer-contact-info">
-                    <p> contact info</p>
+                    <a href='https://github.com/aryan151'> GitHub</a>
+                    <a href='https://www.linkedin.com/in/aryan-attul-078862216'> linkedin</a> 
 
             </div>
 
