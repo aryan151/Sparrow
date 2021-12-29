@@ -3,7 +3,7 @@ import Item from './item'
   
 function StockList({isPos}) {  
 
-    const assets = useSelector(state => state?.userAssets) 
+    const assets = useSelector(state => state?.userAssets)   
     const listKeys = Object.keys(assets)  
     let tickers = {}
     let hack = ['1']

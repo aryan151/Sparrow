@@ -44,7 +44,7 @@ function Dash () {
             <p>Stories</p> 
             </div>
             <div className={`watchlist-container`}>  
-            <StockList isPos={isPos}/> 
+            <StockList isPos={isPos}/>   
                 <div className={`watchlist-header`} >
                     <h2 className={`watchlist-title`}>Lists</h2>
                     <AiOutlinePlus className={`-new-watchlist-button`} onClick={() => setShowNewList(true)} />
