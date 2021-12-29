@@ -5,13 +5,15 @@ import stocksReducer from './stocks';
 import watchListsReducer from './watchLists';
 import currentStockReducer from './currentStock';
 import userAssetsReducer from './userAssets'
+import watchlistStocksReducer from './watchlistStocks';
 
 const rootReducer = combineReducers({
   session,
   allStocks: stocksReducer,
   watchLists: watchListsReducer,
   currentStock: currentStockReducer,
-  userAssets: userAssetsReducer  
+  userAssets: userAssetsReducer,
+  watchListStocks: watchlistStocksReducer  
 });
 
 

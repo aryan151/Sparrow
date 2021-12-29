@@ -6,6 +6,7 @@ import Watchlist from '../WatchList';
 import Main from '../SingleStock/StockChart/main';      
 import Resolution from '../SingleStock/ChartSize';  
 import ReactLoading from 'react-loading'
+import StockList from '../WatchList/stocklist';
 import { AiOutlinePlus } from 'react-icons/ai' 
 import './dash.css'  
 
@@ -33,7 +34,7 @@ function Dash () {
             await dispatch(setUserAssets(user.id, resolution))
         })()
     }, [dispatch, resolution]);
-
+    
     return (
     <div className={`main-body`}>
         <div className='main-wrapper'>
@@ -42,7 +43,8 @@ function Dash () {
             <Resolution resolution={resolution} setResolution={setResolution} isPos={isPos}/> 
             <p>Stories</p> 
             </div>
-            <div className={`watchlist-container`}>
+            <div className={`watchlist-container`}>  
+            <StockList isPos={isPos}/> 
                 <div className={`watchlist-header`} >
                     <h2 className={`watchlist-title`}>Lists</h2>
                     <AiOutlinePlus className={`-new-watchlist-button`} onClick={() => setShowNewList(true)} />

@@ -50,7 +50,7 @@ const res = await fetch(`/api/watchlists/${watchlist.id}/`, {
     body: JSON.stringify(watchlist)
 });
 const updatedList = await res.json();
-dispatch(updateUserListAction(updatedList));  
+dispatch(updateUserListAction(updatedList));    
 };
 
 export const deleteUserList = (watchlistId) => async (dispatch) => {
