@@ -4,8 +4,8 @@ import Main from "../SingleStock/StockChart/main";
   
 function ItemData({ticker, isStocks, listId, id}){    
     const graphData = useSelector(state => state?.watchlistStocks[ticker])      
-   
-
+    
+ 
     let isPos = graphData?.[graphData.length - 1]["%"][0] === "+" ? "pos" : "neg";
 
     return (
