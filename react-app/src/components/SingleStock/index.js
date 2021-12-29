@@ -6,6 +6,7 @@ import Main from "./StockChart/main";
 import Resolution from './ChartSize/index'  
 import KeyStatistics from './StockStats/keystats'
 import BuyOrSell from "./BuySellModule";  
+import AddStock from "./AddStockWatch/StockList";   
 import {setCurrentStock} from '../../store/currentStock'  
 import './singlestock.css'
 
@@ -13,9 +14,9 @@ import './singlestock.css'
 function SingleStock () {
     const dispatch = useDispatch()  
     const {ticker} = useParams() 
-
+    const userId = useSelector(state => state?.session?.user?.id)
     const [resolution, setResolution] = useState('D');
-    const [readMore, setReadMore] = useState(false);  
+    const [readMore, setReadMore] = useState(false);   
 
     const {graphData, stockInfo, stockStats, currentPrice} = useSelector(state => state.currentStock)
     let isPos = graphData?.[graphData.length - 1]['%'][0] === '+' ? 'pos' : 'neg'
@@ -91,6 +92,12 @@ function SingleStock () {
                 price={currentPrice.price}
                 isPos={isPos}
               />  
+              <AddStock
+                ticker={ticker}
+                userId={userId}
+                isPos={isPos}
+                stockName={stockInfo.name}
+                /> 
             </div>
           </div>
         </div>

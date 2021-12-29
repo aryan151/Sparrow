@@ -21,7 +21,7 @@ function Dash () {
     const [showNewList, setShowNewList] = useState(false)
     const [newListName, setNewListName] = useState('')     
 
-    function createNewList() {
+    function createNewList() {  
         dispatch(addUserList({
             user_id: user.id,
             watchlist_name: newListName  
@@ -37,12 +37,13 @@ function Dash () {
     }, [dispatch, resolution]);
     
     return (
-    <div className={`main-body`}>
+    <div className={`main-body`}>  
+        
         <div className='main-wrapper'>
             <div className={`main-content`}> 
             {graphData ? <Main graphData={graphData} isPos={isPos}/> : <ReactLoading type={"spin"} color={'var(--clr-secondary)'} height={"20%"} width={"20%"} />}
             <Resolution resolution={resolution} setResolution={setResolution} isPos={isPos}/> 
-            <p>Stories</p> 
+            <p>Stories {user.id}</p> 
             </div>
             <div className={`watchlist-container`}>  
             <StockList isPos={isPos}/>   
