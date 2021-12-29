@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.assets_routes import asset_routes
 from .api.stocks_route import stock_routes
 from .api.watchlist_routes import watchlist_routes 
+from .api.symbols_routes import symbols_routes 
 
 from .seeds import seed_commands
 
@@ -36,7 +37,8 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(asset_routes, url_prefix='/api/assets')
 app.register_blueprint(stock_routes, url_prefix='/api/stocks') 
-app.register_blueprint(watchlist_routes, url_prefix='/api/watchlists')  
+app.register_blueprint(watchlist_routes, url_prefix='/api/watchlists')     
+app.register_blueprint(symbols_routes, url_prefix='/api/symbols')
 db.init_app(app)
 Migrate(app, db)
 

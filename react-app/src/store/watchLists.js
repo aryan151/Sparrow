@@ -98,6 +98,14 @@ export const addListSymbol = (listId, ticker) => async (dispatch) => {
     dispatch(addListSymbolAction(listSymbol));  
 };
 
+export const deleteListSymbol = (listSymbol) => async (dispatch) => {
+    const {id, listId, symbol} = listSymbol  
+    await fetch(`/api/symbols/${id}/`, {
+        method: "DELETE"
+    });
+    dispatch(deleteListSymbolAction({listId, symbol}));
+};
+
 
 const initialState = {}
 
@@ -123,6 +131,10 @@ switch (action.type) {
         newState = {...state}  
         newState[action.data.listId].tickers = {...newState[action.data.listId].tickers, [action.data.ticker]: action.data}
         return newState; 
+    case DELETE_LIST_SYMBOL:
+        newState = {...state}
+        delete newState[action.data.listId].tickers[action.data.ticker]
+        return newState  
     default:
         return state;
 }
