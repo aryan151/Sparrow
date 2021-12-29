@@ -26,7 +26,7 @@ def update_buying_power(id):
     db.session.commit()
     return 'ok'
 
-@user_routes.route('/<int:id>/assets/')
+@user_routes.route('/<int:id>/assets/')  
 def get_all_assets(id):
     assets_from_db = Asset.query.filter(Asset.user_id == int(id)).all()  
     assets = { asset.to_dict()['ticker']: asset.to_dict() for asset in assets_from_db }
@@ -41,7 +41,7 @@ def watchlists(id):
         return {Watchlist.to_dict()['id']: Watchlist.to_dict() for Watchlist in Watchlists}
     elif request.method == 'POST':
         body = request.json
-        new_watchlist = Watchlist(user_id=id, list_name=body["Watchlist_name"])
+        new_watchlist = Watchlist(user_id=id, watchlist_name=body["watchlist_name"])  
         db.session.add(new_watchlist)
         db.session.commit()
         return new_watchlist.to_dict()    

@@ -11,7 +11,6 @@ const setWatchListAction = (stocks) => {
 };
 
 
-  
 export const setWatchListStocks = (tickers) => async (dispatch) => {
   let stockInfo = {};
   let error = false
