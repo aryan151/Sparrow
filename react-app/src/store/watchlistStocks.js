@@ -18,6 +18,7 @@ export const setWatchListStocks = (tickers) => async (dispatch) => {
   for (let i = 0; i < tickers.length; i++) {
     let ticker = tickers[i];   
     const stockData = await singleAssetGraphData("D", ticker);  
+  
     if (stockData) {
       stockInfo[ticker] = stockData  
     } else {

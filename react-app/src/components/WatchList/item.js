@@ -1,16 +1,16 @@
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react"; 
+import { useSelector } from "react-redux";
 import { setWatchListStocks } from "../../store/watchlistStocks"; 
 import {IoIosArrowDown, IoIosArrowUp} from 'react-icons/io'   
 import {BiDotsHorizontal} from 'react-icons/bi'     
 import ItemData from "./itemchart";
 
 function Item ({list, listName=false , isStocks=false, isPos}){ 
-    const dispatch = useDispatch();
-    
+    const dispatch = useDispatch();    
     const [showList, setShowList] = useState(true)
     const refListLength = Object.keys(list?.tickers).length
-
+    
     let tickers = Object.keys(list?.tickers);  
 
     useEffect(() => {
@@ -18,7 +18,7 @@ function Item ({list, listName=false , isStocks=false, isPos}){
            await dispatch(setWatchListStocks(tickers))
         })();
     },[dispatch, tickers])        
-
+   
 
 
     return (
@@ -31,15 +31,16 @@ function Item ({list, listName=false , isStocks=false, isPos}){
         </div>  
         {showList && (
           <>
-          {console.log(tickers)}         
+          {console.log(tickers)}            
             {tickers &&
               tickers.map((ticker) => (    
-                <ItemData  
-                  ticker={ticker}
-                  isStocks={isStocks}
-                  listId={list?.tickers[ticker]?.listId}
-                  id={list?.tickers[ticker]?.id}   
-                />
+                // <ItemData  
+                //   ticker={ticker}
+                //   isStocks={isStocks}
+                //   listId={list?.tickers[ticker]?.listId}
+                //   id={list?.tickers[ticker]?.id}   
+                // />
+                <p>{ticker}</p> 
               ))}
           </>
         )}

@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import Main from "../SingleStock/StockChart/main";  
   
 function ItemData({ticker, isStocks, listId, id}){    
-    const graphData = useSelector(state => state?.watchlistStocks[ticker])    
+    const graphData = useSelector(state => state?.watchlistStocks[ticker])      
    
 
     let isPos = graphData?.[graphData.length - 1]["%"][0] === "+" ? "pos" : "neg";
 
     return (
         <>  
-            {graphData &&  
+            {graphData &&    
             <div className='delete-container'>
                 <Link to={`/stocks/${ticker}`}>
                     <div className="list-stock-wrapper">  
