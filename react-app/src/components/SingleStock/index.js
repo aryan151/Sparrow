@@ -79,7 +79,7 @@ function SingleStock () {
               />  
               {assets[ticker] && (
                 <div className="about-section">
-                  <performance
+                  <Performance 
                     currentPrice={currentPrice}
                     stockStats={stockStats}
                     assets={assets}
