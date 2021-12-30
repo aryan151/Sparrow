@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { setWatchListStocks } from "../../store/watchlistStocks"; 
 import {IoIosArrowDown, IoIosArrowUp} from 'react-icons/io'  
 import Edit from "./edit"; 
-import {Modal} from '../../context/Modal'  
+import {Modal} from '../../context/Modal'    
 import {BiDotsHorizontal} from 'react-icons/bi'     
 import ItemData from "./itemchart";
 

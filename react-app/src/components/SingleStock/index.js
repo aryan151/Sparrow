@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";      
 import { useParams } from 'react-router-dom'
-import ReactLoading from 'react-loading' 
+import ReactLoading from 'react-loading'   
 import Main from "./StockChart/main";  
 import Resolution from './ChartSize/index'  
 import KeyStatistics from './StockStats/keystats'
@@ -12,7 +12,7 @@ import Performance from './Performance/index'
 import {setCurrentStock} from '../../store/currentStock'  
 import {setCompanyStories} from '../../store/currentStories'   
 import { setUserAssets } from "../../store/userAssets";
-import './singlestock.css'
+import './singlestock.css'  
 
 
 function SingleStock () {
