@@ -40,7 +40,7 @@ function SingleStock () {
         await dispatch(setUserAssets(userId)) 
         await dispatch(setCompanyStories(ticker))  
       })()
-    }, [dispatch])  
+    }, [dispatch, ticker])    
 
     useEffect(()=>{
         (async ()=>{
