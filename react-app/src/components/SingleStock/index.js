@@ -32,7 +32,7 @@ function SingleStock () {
     const moreDesctiption = description?.split(' ').slice(30).join(' ')
 
     const toggleReadMore = () => {
-        setReadMore(!readMore)
+        setReadMore(!readMore)  
       }  
 
     useEffect(()=>{

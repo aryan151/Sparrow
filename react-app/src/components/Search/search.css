@@ -27,7 +27,7 @@
     border-top: none;
     transform: translateX(-.9px);
     margin-top: -1.4px;
-    z-index: -1;
+    z-index: 300;
   }
   
   .filteredStocks::-webkit-scrollbar {
@@ -73,7 +73,7 @@
     font-size: 13px;
     line-height: 20px;
     height: 34px;
-    z-index: 400;
+    z-index: 4000;
     background-color: var(--clr-bp-bg);
   }
   
