@@ -74,8 +74,21 @@ await fetch(`/api/watchlists/${watchlistId}/`, {
 dispatch(deleteUserListAction(watchlistId));
 };
 
-export const addUserList = (watchlist) => async (dispatch) => {
-const res = await fetch(`/api/users/${watchlist.user_id}/watchlist/`, {
+
+export const newUserList = (obj) => async (dispatch) => {     
+    const res = await fetch(`/api/watchlists/new/${obj.user_id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(obj),
+    });
+  };
+
+
+
+export const addUserList = (watchlist) => async (dispatch) => {  
+const res = await fetch(`/api/users/${watchlist.user_id}/watchlist/`, {  
     method: "POST",
     headers: {
         "Content-Type": "application/json"
@@ -105,6 +118,8 @@ export const deleteListSymbol = (listSymbol) => async (dispatch) => {
     });
     dispatch(deleteListSymbolAction({listId, ticker}));  
 };
+
+
 
 
 const initialState = {}

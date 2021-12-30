@@ -15,7 +15,7 @@ def watchlists(id):
         current_list = Watchlist.query.get(id)
         db.session.delete(current_list)
         db.session.commit()
-        return 'ok'
+        return 'ok'  
 
 @watchlist_routes.route('/<int:id>/watchlist_ticker/', methods=['POST'])  
 def watchlist_ticker(id):  
@@ -27,3 +27,14 @@ def watchlist_ticker(id):
     db.session.add(currentticker)  
     db.session.commit()
     return currentticker.to_dict()  
+
+
+@watchlist_routes.route('/new/<int:user_id>', methods=['POST'])
+def new_watchlist(user_id):
+    data = request.json
+
+    watchlist = Watchlist(watchlist_name=data['name'], user_id=data['user_id'])      
+    db.session.add(watchlist)
+    db.session.commit()
+
+    return {'msg': 'ok'}

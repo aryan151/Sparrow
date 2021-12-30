@@ -66,8 +66,7 @@ function Edit({list, setShowModal}) {
                 {tickers &&
                     tickers.map((ticker) => (
                         
-                        <div className='edit-list-symbol-info'>
-                            {ticker}
+                        <div className='edit-list-symbol-info'>  
                             {(
                                 <>
                                     <div className="edit-list-wrapper">

@@ -6,6 +6,7 @@ import watchListsReducer from './watchLists';
 import currentStockReducer from './currentStock';
 import userAssetsReducer from './userAssets'
 import watchlistStocksReducer from './watchlistStocks';
+import currentStoriesReducer from './currentStories';
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   watchLists: watchListsReducer,
   currentStock: currentStockReducer,
   userAssets: userAssetsReducer,
-  watchListStocks: watchlistStocksReducer  
+  watchListStocks: watchlistStocksReducer,
+  stories: currentStoriesReducer
 });
 
 

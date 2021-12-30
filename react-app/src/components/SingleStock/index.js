@@ -7,7 +7,9 @@ import Resolution from './ChartSize/index'
 import KeyStatistics from './StockStats/keystats'
 import BuyOrSell from "./BuySellModule";  
 import AddStock from "./AddStockWatch/StockList";   
+import Stories from '../Dashboard/Stories/stories'
 import {setCurrentStock} from '../../store/currentStock'  
+import {setCompanyStories} from '../../store/currentStories'   
 import './singlestock.css'
 
 
@@ -19,6 +21,7 @@ function SingleStock () {
     const [readMore, setReadMore] = useState(false);   
 
     const {graphData, stockInfo, stockStats, currentPrice} = useSelector(state => state.currentStock)
+    const stories = useSelector(state => state.stories) 
     let isPos = graphData?.[graphData.length - 1]['%'][0] === '+' ? 'pos' : 'neg'
 
     const description = stockInfo?.description
@@ -29,6 +32,11 @@ function SingleStock () {
         setReadMore(!readMore)
       }  
 
+    useEffect(()=>{
+      (async ()=>{
+        await dispatch(setCompanyStories(ticker))  
+      })()
+    }, [dispatch])  
 
     useEffect(()=>{
         (async ()=>{
@@ -85,6 +93,7 @@ function SingleStock () {
                 <p className="sa-header">Key Statistics</p>
                 <KeyStatistics stockStats={stockStats} />  
               </div>
+              <Stories stories={stories} /> 
             </div>
             <div className="bns-container">
             <BuyOrSell    
@@ -104,7 +113,7 @@ function SingleStock () {
       ) : (
         <div className="loading-screen">
           <ReactLoading
-            type={"balls"}
+            type={"spin"} 
             color={"var(--clr-secondary)"}
             height={"10%"}
             width={"10%"}
