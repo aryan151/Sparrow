@@ -8,7 +8,7 @@ def watchlists(id):
     if request.method == 'PATCH':
         body = request.json
         current_list = Watchlist.query.get(id)
-        current_list.list_name = body['watchlist_name']
+        current_list.watchlist_name = body['watchlist_name']  
         db.session.commit()
         return current_list.to_dict()
     if request.method == 'DELETE':  

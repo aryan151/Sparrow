@@ -30,7 +30,7 @@ function SingleStock () {
     const description = stockInfo?.description
     const shortDescription = description?.split(' ').slice(0, 30).join(' ')
     const moreDesctiption = description?.split(' ').slice(30).join(' ')
-
+  
     const toggleReadMore = () => {
         setReadMore(!readMore)  
       }  
