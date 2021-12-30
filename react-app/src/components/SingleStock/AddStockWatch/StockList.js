@@ -22,7 +22,7 @@ function AddStock ({ticker, userId, isPos, stockName}){
     function isInList(list){
         
         return list.tickers[ticker] ? true : false  
-    }
+    }   
 
     function handleSubmit(){
         const listInputs = document.querySelectorAll(".listInputs")
@@ -37,10 +37,8 @@ function AddStock ({ticker, userId, isPos, stockName}){
     }
 
     function handleNewList(){
-        dispatch(addUserList({
-            user_id: userId,
-            watchlist_name: newListName
-        }))
+        const list = { user_id: userId, watchlist_name: newListName } 
+        dispatch(addUserList(list, userId))  
         setNewListName('')
         setShowNewList(false)
     }
