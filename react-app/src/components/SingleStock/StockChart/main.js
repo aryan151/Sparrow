@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux'
 import Odometer from 'react-odometerjs';  
 import {CustomToolTip} from '../../../store/stockApiInfo'  
 import './main.css'  
-
+  
 
 function Main({graphData, isWatchList=false, isSingleAsset=false, isPos}){
 

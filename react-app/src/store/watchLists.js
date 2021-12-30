@@ -99,11 +99,11 @@ export const addListSymbol = (listId, ticker) => async (dispatch) => {
 };
 
 export const deleteListSymbol = (listSymbol) => async (dispatch) => {
-    const {id, listId, symbol} = listSymbol  
+    const {id, listId, ticker} = listSymbol  
     await fetch(`/api/symbols/${id}/`, {
         method: "DELETE"
     });
-    dispatch(deleteListSymbolAction({listId, symbol}));
+    dispatch(deleteListSymbolAction({listId, ticker}));  
 };
 
 

@@ -17,7 +17,7 @@ function Item ({list, listName=false , isStocks=false, isPos}){
     
     let tickers = Object.keys(list?.tickers);  
     
-
+  
     useEffect(() => {
      
             dispatch(setWatchListStocks(tickers))
@@ -28,7 +28,7 @@ function Item ({list, listName=false , isStocks=false, isPos}){
 
     return (
       <>
-        <div className={`${listName ? 'stock-title' : `list-title-edit`}`}>
+        <div className={`${listName ? 'stock-title' : `list-title-edit`}`}>  
           <h1>{listName ? listName : list.watchlistName}</h1>   
           <div className="list-settings">
               {!isStocks && <BiDotsHorizontal onClick={() => setShowModal(!showModal)} className={`${isPos}-menu`}/>}
