@@ -8,8 +8,10 @@ import KeyStatistics from './StockStats/keystats'
 import BuyOrSell from "./BuySellModule";  
 import AddStock from "./AddStockWatch/StockList";   
 import Stories from '../Dashboard/Stories/stories'
+import Performance from './Performance/index'  
 import {setCurrentStock} from '../../store/currentStock'  
 import {setCompanyStories} from '../../store/currentStories'   
+import { setUserAssets } from "../../store/userAssets";
 import './singlestock.css'
 
 
@@ -17,6 +19,7 @@ function SingleStock () {
     const dispatch = useDispatch()  
     const {ticker} = useParams() 
     const userId = useSelector(state => state?.session?.user?.id)
+    const assets = useSelector(state => state.userAssets) 
     const [resolution, setResolution] = useState('D');
     const [readMore, setReadMore] = useState(false);   
 
@@ -34,6 +37,7 @@ function SingleStock () {
 
     useEffect(()=>{
       (async ()=>{
+        await dispatch(setUserAssets(userId)) 
         await dispatch(setCompanyStories(ticker))  
       })()
     }, [dispatch])  
@@ -72,7 +76,18 @@ function SingleStock () {
                 resolution={resolution}
                 setResolution={setResolution}
                 isPos={isPos}
-              /> 
+              />  
+              {assets[ticker] && (
+                <div className="about-section">
+                  <performance
+                    currentPrice={currentPrice}
+                    stockStats={stockStats}
+                    assets={assets}
+                    ticker={ticker}  
+                  />
+                </div>
+              )}
+
                 <div className="about-section">
                 <p className="sa-header">About</p>
                 {moreDesctiption ? (
