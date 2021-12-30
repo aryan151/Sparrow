@@ -15,7 +15,7 @@ def users():
 @user_routes.route('/<int:id>')
 @login_required
 def user(id):
-    user = User.query.get(id)
+    user = User.query.get(id) 
     return user.to_dict()  
     
 @user_routes.route('/<int:id>/buying_power/', methods=["PATCH"])
@@ -41,7 +41,7 @@ def watchlists(id):
         return {Watchlist.to_dict()['id']: Watchlist.to_dict() for Watchlist in Watchlists}
     elif request.method == 'POST':
         body = request.json
-        new_watchlist = Watchlist(user_id=id, watchlist_name=body["watchlist_name"])  
+        new_watchlist = Watchlist(user_id=id, watchlist_name=body["watchlist_name"])    
         db.session.add(new_watchlist)
         db.session.commit()
         return new_watchlist.to_dict()    

@@ -8,7 +8,7 @@ import {Modal} from '../../context/Modal'
 import {BiDotsHorizontal} from 'react-icons/bi'     
 import ItemData from "./itemchart";
 
-function Item ({list, listName=false , isStocks=false, isPos}){ 
+function Item ({list, listName=false , isStocks=false, isPos, userId}){  
     const dispatch = useDispatch();    
     const [showList, setShowList] = useState(true)
     const [showModal, setShowModal] = useState(false)
@@ -37,7 +37,7 @@ function Item ({list, listName=false , isStocks=false, isPos}){
         </div>  
         {showModal && (
           <Modal onClose={() => setShowModal(false)} isWatchList={true}>
-            <Edit setShowModal={setShowModal} list={list} />  
+            <Edit setShowModal={setShowModal} list={list} userId={userId}/>   
           </Modal>
         )}
         {showList && (

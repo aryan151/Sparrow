@@ -20,7 +20,7 @@ function AllList({isPos}) {
     return (
         <>
             {listKeys && listKeys.map(key => (
-                <Item list={lists[key]} isPos={isPos}/>  
+                <Item list={lists[key]} isPos={isPos} userId={userId}/>   
             ))}
         </>
     );

@@ -6,7 +6,7 @@ import { setGeneralStories } from '../../store/currentStories'
 import { newUserList, setUserLists } from '../../store/watchLists';  
 import Watchlist from '../WatchList';  
 import Main from '../SingleStock/StockChart/main';      
-import Resolution from '../SingleStock/ChartSize';  
+import Resolution from '../SingleStock/ChartSize';    
 import ReactLoading from 'react-loading'
 import StockList from '../WatchList/stocklist';  
 import AllList from '../WatchList/alllists';
@@ -26,11 +26,9 @@ function Dash () {
     const [newListName, setNewListName] = useState('')     
 
     function createNewList() {  
-        dispatch(addUserList({
-            user_id: user.id,
-            watchlist_name: newListName  
-        }))
-        setNewListName('')
+        const list = { user_id: user.id, watchlist_name: newListName } 
+        dispatch(addUserList(list, user.id))  
+        setNewListName('')  
         setShowNewList(false)
     }
 
@@ -39,7 +37,7 @@ function Dash () {
             await dispatch(setGeneralStories())
         })()
     }, [dispatch]); 
-
+ 
     useEffect(() => {
         (async () => {
             await dispatch(setUserAssets(user.id, resolution))     

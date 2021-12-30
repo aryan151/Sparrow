@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useSelector, useDispatch} from 'react-redux';  
 import { deleteListSymbol } from "../../store/watchLists";  
-import { updateUserList, deleteUserList } from "../../store/watchLists";      
+import { updateUserList, deleteUserList, setUserLists } from "../../store/watchLists";       
 import { MdDeleteOutline } from 'react-icons/md'; 
 import Main from "../SingleStock/StockChart/main";     
     
-function Edit({list, setShowModal}) {      
+function Edit({list, setShowModal, userId}) {        
     const dispatch = useDispatch()   
     const graphData = useSelector(state => state?.watchlistStocks)    
     const userAssetsGraph = useSelector(state => state.userAssets.graphData)
@@ -20,14 +20,15 @@ function Edit({list, setShowModal}) {
     function handleTitleSave() {
         const updatedList = {
             id: list.id,
-            watchlist_name: newListTitle  
+            watchlist_name: newListTitle     
         }
         dispatch(updateUserList(updatedList)) 
     }
 
     function handleListDelete() {
-        dispatch(deleteUserList(list.id))
-        setShowModal(false)
+        dispatch(deleteUserList(list.id)).watchlistName(() => dispatch(setUserLists(userId))) 
+        setShowModal(false)  
+
     }
 
 

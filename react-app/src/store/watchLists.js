@@ -49,12 +49,25 @@ const deleteListSymbolAction = (data) => {
 };  
 
 
-export const setUserLists = (userId) => async (dispatch) => {
+export const setUserLists = (userId) => async (dispatch) => {  
     const res = await fetch(`/api/users/${userId}/watchlists/`);
     const watchlists = await res.json();
     dispatch(setUserListsAction(watchlists));      
 };
 
+export const addUserList = (watchlist, userId) => async (dispatch) => {  
+    const res = await fetch(`/api/users/${userId}/watchlists/`, {     
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(watchlist)   
+    });
+    const newList = await res.json();   
+    dispatch(addUserListAction(newList));  
+    };
+    
+  
 export const updateUserList = (watchlist) => async (dispatch) => {
     const res = await fetch(`/api/watchlists/${watchlist.id}/`, {
         method: "PATCH",
@@ -74,30 +87,6 @@ await fetch(`/api/watchlists/${watchlistId}/`, {
 dispatch(deleteUserListAction(watchlistId));
 };
 
-
-export const newUserList = (obj) => async (dispatch) => {     
-    const res = await fetch(`/api/watchlists/new/${obj.user_id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(obj),
-    });
-  };
-
-
-
-export const addUserList = (watchlist) => async (dispatch) => {  
-const res = await fetch(`/api/users/${watchlist.user_id}/watchlist/`, {  
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(watchlist)   
-});
-const newList = await res.json();
-dispatch(addUserListAction(newList));  
-};
 
 export const addListSymbol = (listId, ticker) => async (dispatch) => {
     const res = await fetch(`/api/watchlists/${listId}/watchlist_ticker/`, {
