@@ -10,6 +10,7 @@ import User from './components/User';
 import Splash from './components/SplashPage';
 import SingleStock from './components/SingleStock'
 import Dash from './components/Dashboard'  
+import Account from './components/AccountSettings';
 import {fetchAllStocks} from './store/stocks'
 import { authenticate } from './store/session';
 
@@ -53,8 +54,11 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/stocks/:ticker'>
             <SingleStock/>
-          </ProtectedRoute>  
-      </Switch>
+        </ProtectedRoute>  
+        <ProtectedRoute path='/account' exact={true}>  
+            <Account/>
+        </ProtectedRoute>    
+      </Switch>  
     </BrowserRouter>
   );
 }

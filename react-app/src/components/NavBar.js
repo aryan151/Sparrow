@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton' 
 import Search from './Search';
+import NavDrop from './NavDropDown';
 import './NavBar.css'
 
 const NavBar = () => {
@@ -49,7 +50,7 @@ const NavBar = () => {
             </NavLink>
               <Search />
               <div className='navbar-buttons'>
-                <LogoutButton/>
+                <LogoutButton/>  
               </div>
             </div>
         }
