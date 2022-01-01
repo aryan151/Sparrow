@@ -6,7 +6,7 @@ import {editBuyingPower} from '../../../store/session'
 
 function BuyOrSell ({price, ticker, isPos}) {
     const dispatch = useDispatch() 
-    const buyingPower = useSelector(state => state?.session?.buyingPower)
+    const buyingPower = useSelector(state => state?.session?.user?.buyingPower)
     const assets = useSelector(state => state?.userAssets)
     const userId = useSelector(state => state?.session?.user?.id)    
     const asset = assets?.[ticker]  
@@ -41,8 +41,8 @@ function BuyOrSell ({price, ticker, isPos}) {
                     shares,
                     average
                 }))
-            }
-            dispatch(editBuyingPower(userId, newBuyingPower))
+            } 
+            dispatch(editBuyingPower(userId, newBuyingPower)) 
             setBuyShares(0)
             setError(null)
         } else {
@@ -103,7 +103,7 @@ function BuyOrSell ({price, ticker, isPos}) {
       
         <div className="bns-wrapper">
         <div className="bns-top">  
-        
+        {console.log(buyingPower)}
           <p
             onClick={handleBNSBuy}
             className={isBuy ? `trade-active ${isPos}-bns` : "bns-click"}
