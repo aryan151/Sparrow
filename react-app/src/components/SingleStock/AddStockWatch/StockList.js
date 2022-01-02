@@ -100,11 +100,11 @@ function AddStock ({ticker, userId, isPos, stockName}){
                         type="checkbox"
                         disabled={isInList(lists[key]) ? true : false}
                         />
-                        <span class={`${isPos}2 checkmark`}></span>
+                        <span className={`${isPos}2 checkmark`}></span>
                     </label>
                     <div className="atl-watchlist-info">
                         <div className="atl-emoji">
-                        <p>[]</p>  
+                        <p>[]</p>   
                         </div>
                         <div className="atl-watchlist-stats">
                         <p className="atl-list-names1">{lists[key].watchlistName}</p>  
