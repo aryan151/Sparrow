@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Main from "../SingleStock/StockChart/main";  
   
-function ItemData({ticker, isStocks, listId, id}){    
-    const graphData = useSelector(state => state?.watchlistStocks[ticker])      
+function ItemData({ticker}){     
+    const graphData = useSelector(state => state?.watchListStocks[ticker])      
     
  
     let isPos = graphData?.[graphData.length - 1]["%"][0] === "+" ? "pos" : "neg";

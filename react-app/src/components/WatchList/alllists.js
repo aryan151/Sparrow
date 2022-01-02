@@ -4,7 +4,7 @@ import { setUserLists } from "../../store/watchLists";
 import Item from './item';  
 
 function AllList({isPos}) {
-    const dispatch = useDispatch()  
+    const dispatch = useDispatch()    
 
     const userId = useSelector(state => state?.session?.user?.id)
     const lists = useSelector(state => state?.watchLists)  
