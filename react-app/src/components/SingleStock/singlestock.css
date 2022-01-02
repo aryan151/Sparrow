@@ -52,11 +52,8 @@
     padding-bottom: .7em;
 }
 
-.active-res {
-    /* background-color: var(--clr-primary); */
+.active-res { 
     color: var(--clr-font);
-    /* padding: 5px 10px; */
-    /* border-radius: 4px; */
     margin-bottom: -2px;
     padding-top: 2px;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -69,8 +66,7 @@
 }
 
 .neg-active-res{
-    color: var(--clr-secondary);
-    /* border-bottom: var(--clr-secondary); */
+    color: var(--clr-secondary); 
     border-bottom: 2px solid var(--clr-secondary);
 
 }
@@ -346,4 +342,272 @@
 }
 .neg-atl-button:hover{
     background-color: var(--clr-atl-hover-neg);
+}
+
+
+.atl-wrapper{
+    width: 100%;
+    padding: 20px;
+}
+
+.atl-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.atl-modal-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.new-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.atl-list-names{
+    font-size: 1.2em;
+}
+.atl-list-names1{
+    font-size: 1.2em;
+    margin-bottom: -10px;
+}
+
+.atl-watchlist-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 64px;
+    margin: 15px 0px;
+}
+.atl-watchlist-info{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    gap: 25px;
+}
+
+.atl-watchlist-stats{
+    display: flex;
+    flex-direction: column;
+}
+
+.atl-watchlist-stats-btm{
+    display: flex;
+    gap: 20px;
+}
+.atl-in-list{
+    color: var(--clr-secondary);
+}
+
+.pos-atl-label {
+ display: block;
+ position: relative;
+ padding-left: 35px;
+ margin-bottom: 12px;
+ cursor: pointer;
+ font-size: 22px;
+ -webkit-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ user-select: none;
+}
+
+.pos-atl-label input {
+ position: absolute;
+ opacity: 0;
+ cursor: pointer;
+ height: 0;
+ width: 0;
+}
+
+.checkmark {
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 25px;
+ width: 25px;
+ background-color: #eee;
+}
+
+.pos-atl-label:hover input ~ .checkmark {
+ background-color: var(--clr-atl-hover-pos);
+}
+
+.pos-atl-label input:checked ~ .checkmark {
+ background-color: var(--clr-primary);
+}
+
+.checkmark:after {
+ content: "";
+ position: absolute;
+ display: none;
+}
+
+.pos-atl-label input:checked ~ .checkmark:after {
+ display: block;
+}
+
+.pos-atl-label .checkmark:after {
+ left: 9px;
+ top: 5px;
+ width: 5px;
+ height: 10px;
+ border: solid white;
+ border-width: 0 3px 3px 0;
+ -webkit-transform: rotate(45deg);
+ -ms-transform: rotate(45deg);
+ transform: rotate(45deg);
+}
+.neg-atl-label {
+ display: block;
+ position: relative;
+ padding-left: 35px;
+ margin-bottom: 12px;
+ cursor: pointer;
+ font-size: 22px;
+ -webkit-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ user-select: none;
+}
+
+.neg-atl-label input {
+ position: absolute;
+ opacity: 0;
+ cursor: pointer;
+ height: 0;
+ width: 0;
+}
+
+.checkmark {
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 25px;
+ width: 25px;
+ background-color: var(--clr-bp-bg);
+ 
+}
+.pos2{
+    border: 1px solid var(--clr-primary);
+}
+.neg2{
+    border: 1px solid var(--clr-secondary);
+}
+
+.neg-atl-label:hover input ~ .checkmark {
+ background-color: var(--clr-atl-hover-neg);
+}
+
+.neg-atl-label input:checked ~ .checkmark {
+ background-color: var(--clr-secondary);
+}
+
+.checkmark:after {
+ content: "";
+ position: absolute;
+ display: none;
+}
+
+.neg-atl-label input:checked ~ .checkmark:after {
+ display: block;
+}
+
+.neg-atl-label .checkmark:after {
+ left: 9px;
+ top: 5px;
+ width: 5px;
+ height: 10px;
+ border: solid white;
+ border-width: 0 3px 3px 0;
+ -webkit-transform: rotate(45deg);
+ -ms-transform: rotate(45deg);
+ transform: rotate(45deg);
+}
+
+.pos-atl-save-btn, .neg-atl-save-btn{
+    width: 100%;
+    height: 48px;
+    border-radius: 5px;  
+    margin-top: 30px;
+    font-size: 1em; 
+    font-weight: 500;
+}
+
+.pos-atl-save-btn {
+    background-color: var(--clr-primary);
+}
+
+.neg-atl-save-btn {
+    background-color: var(--clr-secondary);
+}
+
+.pos-atl-save-btn:hover {
+    background-color: var( --clr-button-hover-pos);
+}
+
+.neg-atl-save-btn:hover {
+    background-color: var(--clr-button-hover-neg);
+}
+
+.atl-input-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.list-name-update-button-container{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pos-atl-list-create-btn, 
+.neg-atl-list-create-btn {
+    border-radius: 5px;
+    padding: 7px 12px;
+    font-weight: 500;
+}
+
+.pos-atl-list-create-btn:hover{
+    background-color: var(--clr-button-hover-pos);
+}
+
+.neg-atl-list-create-btn:hover{
+    background-color: var(--clr-button-hover-neg);
+}
+
+.pos-atl-list-create-btn{
+    background-color: var(--clr-primary);
+}
+
+.neg-atl-list-create-btn{
+    background-color: var(--clr-secondary);
+}
+
+.pos-atl-list-cancel-btn,
+.neg-atl-list-cancel-btn {
+    background-color: var(--clr-bp-bg);
+}
+
+.pos-atl-yon{
+    color: var(--clr-primary);
+}
+.neg-atl-yon{
+    color: var(--clr-secondary);
 }

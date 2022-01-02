@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useState, useEffect } from "react"     
 import { addListSymbol, addUserList, setUserLists } from "../../../store/watchLists"  
-import { AiOutlineClose, AiOutlinePlus, AiOutlineCheck } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";  
 import {Modal} from '../../../context/Modal'    
 
 
@@ -51,16 +51,14 @@ function AddStock ({ticker, userId, isPos, stockName}){
             className={`${isPos}-atl-button`}
             onClick={() => setOpenLists(!openLists)} 
             >
-            {Object.keys(lists).find(key => lists[key].tickers[ticker]) ? <AiOutlineCheck  className={`${isPos}-atl-yon`}/> : <AiOutlinePlus className={`${isPos}-atl-yon`}/>}
                 Add to Lists
             </button>
 
             {openLists && (
             <Modal onClose={() => setOpenLists(false)} isWatchList={false}>  
                 <div className="atl-modal-wrapper">
-                <div className="atl-close-btn">
+                <div className="atl-title">
                     <p>Add {ticker} to Your Lists</p>
-                    <AiOutlineClose onClick={() => setOpenLists(!openLists)} className="atl-close" />
                 </div>
                 {showNewList ? (
                     <div className='atl-input-wrapper'>
@@ -80,9 +78,6 @@ function AddStock ({ticker, userId, isPos, stockName}){
                     </div>
                 ) : (
                     <div className="new-list" onClick={() => setShowNewList(true)}>
-                    <div className={`${isPos}-plus-btn-bg`}>
-                        <AiOutlinePlus className={`${isPos}-plus-btn`} />
-                    </div>
                     <div>  
                         <p className="atl-list-names new-list-pointer">Create New List</p>
                     </div>
@@ -103,9 +98,6 @@ function AddStock ({ticker, userId, isPos, stockName}){
                         <span className={`${isPos}2 checkmark`}></span>
                     </label>
                     <div className="atl-watchlist-info">
-                        <div className="atl-emoji">
-                        <p>[]</p>   
-                        </div>
                         <div className="atl-watchlist-stats">
                         <p className="atl-list-names1">{lists[key].watchlistName}</p>  
                         <div className="atl-watchlist-stats-btm">
