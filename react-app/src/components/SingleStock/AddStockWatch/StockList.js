@@ -33,6 +33,7 @@ function AddStock ({ticker, userId, isPos, stockName}){
             const listId = Number(input.attributes.id.value.split("-")[1])  
             dispatch(addListSymbol(listId, ticker))
         }
+        dispatch(setUserLists(userId)) 
         setOpenLists(!openLists)
     }
 
@@ -58,7 +59,7 @@ function AddStock ({ticker, userId, isPos, stockName}){
             <Modal onClose={() => setOpenLists(false)} isWatchList={false}>  
                 <div className="atl-modal-wrapper">
                 <div className="atl-title">
-                    <p>Add {ticker} to Your Lists</p>
+                    <p>Add {ticker} to Your Lists</p>  
                 </div>
                 {showNewList ? (
                     <div className='atl-input-wrapper'>
