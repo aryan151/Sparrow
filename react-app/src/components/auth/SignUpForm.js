@@ -11,16 +11,19 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const user = useSelector(state => state.session.user);
+  const user = useSelector(state => state?.session?.user);
   const dispatch = useDispatch();
-
+  
   const onSignUp = async (e) => {  
     e.preventDefault();
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstName, lastName, email, password));
       if (data) {
-        setErrors(data)
+        setErrors(data)  
       }
+    }
+    else {
+      alert('Please Enter Matching Passwords!')  
     }
   };
 
@@ -45,7 +48,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/dash' />;
   }
 
   return (
@@ -81,6 +84,7 @@ const SignUpForm = () => {
                       placeholder='First Name'
                       onChange={updateFirstName}
                       value={firstName}
+                      required={true}
                     ></input>
                   </div>
                   <div className="sign-up-last-name-container">
@@ -90,6 +94,7 @@ const SignUpForm = () => {
                       placeholder='Last Name'
                       onChange={updateLastName}
                       value={lastName}
+                      required={true}
                     ></input>
                   </div>
                 </div>

@@ -45,7 +45,7 @@ function Dash () {
         })()
     }, [dispatch, resolution]);
     
-    return (
+    return ( 
     <div className={`main-body`}>  
         
         <div className='main-wrapper'>  
