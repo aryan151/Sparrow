@@ -38,6 +38,7 @@ function Edit({list, setShowModal, userId}) {
         return isPos  
     }
 
+    
     function handleDelete(ticker, listId, id) {  
         dispatch(deleteListSymbol({
             id,
