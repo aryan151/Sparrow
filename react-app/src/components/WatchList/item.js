@@ -24,9 +24,8 @@ function Item ({list, listName=false , isStocks=false, isPos, userId}){
       
     },[dispatch, tickers])        
    
-
-
-    return (
+    
+    return (  
       <>
         <div className={`${listName ? 'stock-title' : `list-title-edit`}`}>  
           <h1>{listName ? listName : list.watchlistName}</h1>   
@@ -45,13 +44,11 @@ function Item ({list, listName=false , isStocks=false, isPos, userId}){
                    
             {tickers &&
               tickers.map((ticker) => (    
-                // <ItemData  
-                //   ticker={ticker}
-                //   isStocks={isStocks}
-                //   listId={list?.tickers[ticker]?.listId}
-                //   id={list?.tickers[ticker]?.id}   
-                // />
-                <p>{ticker}</p> 
+                
+                <ItemData  
+                  ticker={ticker} 
+                /> 
+
               ))}
           </>
         )}
