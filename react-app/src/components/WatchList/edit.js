@@ -46,9 +46,10 @@ function Edit({list, setShowModal, userId}) {
             id,
             listId,
             ticker
-        })).then(() => setShowModal(false)  )   
+        })).then(() => setShowModal(false))
+        window.location.reload(false);
         
-        
+          
     }
 
 
