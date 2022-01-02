@@ -7,7 +7,7 @@ import Main from "../SingleStock/StockChart/main";
     
 function Edit({list, setShowModal, userId}) {        
     const dispatch = useDispatch()   
-    const graphData = useSelector(state => state?.watchlistStocks)    
+    const graphData = useSelector(state => state?.watchListStocks)    
     const userAssetsGraph = useSelector(state => state.userAssets.graphData)
 
     const overAllIsPos = userAssetsGraph?.[userAssetsGraph.length - 1]['%'][0] === '+' ? 'pos' : 'neg'
@@ -63,20 +63,20 @@ function Edit({list, setShowModal, userId}) {
                 <button className={`${overAllIsPos}-save-button`} onClick={handleTitleSave}>Save</button>
             </div>
             <div className='edit-list-symbols' >  
-                <p className='edit-symbols-title' >Stocks in this list</p>
+                <p className='edit-symbols-title' >Stocks in this list</p> 
                 {tickers &&
                     tickers.map((ticker) => (
-                        
+                     
                         <div className='edit-list-symbol-info'>  
                             {(
                                 <>
                                     <div className="edit-list-wrapper">
                                         <p className='edit-list-symbol'>{ticker}</p>  
-                                        {/* <div className='edit-graph'>
+                                        <div className='edit-graph'>
                                             <Main graphData={graphData[ticker]} isWatchList={true} isPos={isPos(ticker)} />
-                                        </div> */}
-                                        {/* <p className='edit-list-price'>{`$${graphData?.[ticker]?.[graphData[ticker].length - 1]?.price}`}</p>
-                                        <p className={`${isPos(ticker)} edit-list-percent`}>{`${graphData?.[ticker]?.[graphData[ticker]?.length - 1][`%`]}%`}</p> */}
+                                        </div>
+                                        <p className='edit-list-price'>{`$${graphData?.[ticker]?.[graphData[ticker].length - 1]?.price}`}</p>
+                                        <p className={`${isPos(ticker)} edit-list-percent`}>{`${graphData?.[ticker]?.[graphData[ticker]?.length - 1][`%`]}%`}</p>
                                         <MdDeleteOutline className={`${isPos(ticker)}-edit-list-symbol-delete`} onClick={() => handleDelete(ticker, list?.tickers[ticker]?.listId, list?.tickers[ticker]?.id)} />
                                     </div>   
                                 </>
