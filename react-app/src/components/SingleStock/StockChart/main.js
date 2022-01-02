@@ -81,8 +81,7 @@ function Main({graphData, isWatchList=false, isSingleAsset=false, isPos}){
                 />
                 )}
                 <Line
-                  dataKey="price"
-                  // type={'stepafter'}
+                  dataKey="price" 
                   stroke={lineColor()}
                   dot={false}
                   strokeWidth={isWatchList ? 1 : 2}

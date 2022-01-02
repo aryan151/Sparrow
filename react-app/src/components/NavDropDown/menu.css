@@ -1,0 +1,109 @@
+.dropDownContainer { 
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+ 
+.menu {
+    background: #ffffff;
+    border-radius: 5px;
+    position: absolute;
+    top: calc(100% + 0.6rem); 
+    left: -198px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    z-index: 3;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu .bubbleArrow {
+  top: -7px;
+  right: 20px;
+}
+.menu ul {
+    position: relative;
+    list-style: none;
+    border-radius: 5px;
+    padding: 0;
+    margin-left: 0px;
+    background-color: #FFFFFF;
+}
+
+.menu li {
+    display: flex;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.menu li:hover {
+    background: rgba(0, 0, 0, .05);
+}
+
+.menu li:first-child:hover{
+    background: rgba(0, 0, 0, .05);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+.menu li:last-child:hover{
+    background: rgba(0, 0, 0, .05);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.menu li a,
+.menu li p {
+  display: flex;
+  padding: 10px 150px 10px 15px;
+  font-size: 0.87rem;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #333333;
+}
+.menu li a > img {
+  height: 20px;
+  margin-right: 10px;
+}
+.borderTop {
+    border-top: 1px solid rgba(0, 0, 0, .2);
+} 
+
+.portfolio-details {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 20px 10px 20px;  
+  }
+  
+  .portfolio-details h3 {
+    margin: 0;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .portfolio-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .avail-cash {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .porfolio-value {
+    font-size: 14px;
+    border-bottom: 1px solid rgb(240, 231, 231);
+  }

@@ -6,19 +6,22 @@ import {editBuyingPower} from '../../../store/session'
 
 function BuyOrSell ({price, ticker, isPos}) {
     const dispatch = useDispatch() 
-    const buyingPower = useSelector(state => state?.session?.buyingPower)
+    const buyingPower = useSelector(state => state?.session?.user?.buyingPower)  
     const assets = useSelector(state => state?.userAssets)
     const userId = useSelector(state => state?.session?.user?.id)    
     const asset = assets?.[ticker]  
     const [isBuy, setIsBuy] = useState(true);
-    const [buyShares, setBuyShares] = useState(null)
+    const [buyShares, setBuyShares] = useState(null)  
     const [sellShares, setSellShares] = useState(null)
-    const [error, setError] = useState(null)           
+    const [error, setError] = useState(null)             
 
     function handleOrder(){
+ 
+
+
 
         if (isBuy) {  
-            let totalCost = Number((buyShares * price).toFixed(2))
+            let totalCost = Number((buyShares * price).toFixed(2))   
             let shares, average, newBuyingPower;
             if (totalCost > Number(buyingPower)) return setError('You do not have enough Buying Power')
             if(buyShares === 0)return setError("Please enter an amount greater than 0")
@@ -41,8 +44,8 @@ function BuyOrSell ({price, ticker, isPos}) {
                     shares,
                     average
                 }))
-            }
-            dispatch(editBuyingPower(userId, newBuyingPower))
+            } 
+            dispatch(editBuyingPower(userId, newBuyingPower)) 
             setBuyShares(0)
             setError(null)
         } else {
@@ -69,6 +72,9 @@ function BuyOrSell ({price, ticker, isPos}) {
             }
         }
     }
+
+
+
 
     function sellAllShares(){
         let totalCredit = asset.shares * price
@@ -99,11 +105,14 @@ function BuyOrSell ({price, ticker, isPos}) {
       if (!charStr.match(/^[0-9]+$/)) e.preventDefault();
     }
 
+
+
+
     return (
       
         <div className="bns-wrapper">
         <div className="bns-top">  
-        
+        {console.log(buyingPower)}
           <p
             onClick={handleBNSBuy}
             className={isBuy ? `trade-active ${isPos}-bns` : "bns-click"}

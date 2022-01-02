@@ -20,7 +20,7 @@ const editBuyingPowerAction = (buyingPower) => {
 };
 
 
-const initialState = { user: null };
+
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -108,7 +108,7 @@ export const signUp = (first_name, last_name, email, password) => async (dispatc
 }
 
 export const editBuyingPower = (userId, newBuyingPower) => async (dispatch) => {
-  await fetch(`/api/users/${userId}/buying-power/`, {
+  await fetch(`/api/users/${userId}/buying_power/`, {  
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
@@ -120,7 +120,7 @@ export const editBuyingPower = (userId, newBuyingPower) => async (dispatch) => {
 }
 
 
-
+const initialState = {};
 export default function reducer(state = initialState, action) {
   let newState; 
   switch (action.type) {
