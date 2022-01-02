@@ -23,7 +23,7 @@ const SignUpForm = () => {
       }
     }
     else {
-      alert('Please Enter Matching Passwords!')  
+      alert('Please Enter Matching Passwords!')    
     }
   };
 
@@ -48,7 +48,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/dash' />;
+    return <Redirect to='/dash' />; 
   }
 
   return (
@@ -108,7 +108,6 @@ const SignUpForm = () => {
                       onChange={updateEmail}
                       value={email}
                       required={true}
-                      type='email'
                     ></input>
                   </div>
                 </div>
