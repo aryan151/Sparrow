@@ -14,14 +14,14 @@ import Account from './components/AccountSettings';
 import {fetchAllStocks} from './store/stocks'
 import { authenticate } from './store/session';
 import {setTheme} from './store/theme'  
+import {setUserAssets} from './store/userAssets' 
 import './index.css'  
 
 function App() { 
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const theme = useSelector(state => state.theme)  
-
-  useEffect(() => {
+  const theme = useSelector(state => state?.theme)  
+  useEffect(() => { 
     (async() => {
       await dispatch(authenticate());
       dispatch(setTheme()) 

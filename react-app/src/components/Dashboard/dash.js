@@ -25,8 +25,11 @@ function Dash () {
     const [resolution, setResolution] = useState('D')  
     const [showNewList, setShowNewList] = useState(false)  
     const [newListName, setNewListName] = useState('')     
-
+ 
     function createNewList() {  
+
+
+
         const list = { user_id: user.id, watchlist_name: newListName }     
         dispatch(addUserList(list, user.id))  
         setNewListName('')  
@@ -43,7 +46,7 @@ function Dash () {
         (async () => {
             await dispatch(setUserAssets(user.id, resolution))     
         })()
-    }, [dispatch, resolution]);
+    }, [dispatch, resolution]);  
     
     return ( 
     <div className={`main-body`}>  
