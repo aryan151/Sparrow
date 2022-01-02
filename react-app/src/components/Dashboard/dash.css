@@ -1,0 +1,319 @@
+.watchlist-header, .stock-title{
+    padding: 0px 20px;
+}
+
+.watchlist-container{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+    background-color: var(--clr-bp-bg);
+    width: 25%;
+    box-shadow: var(--shadow);
+    border: var(--clr-border);
+    border-radius: 5px;
+    height: 90vh;
+    overflow: scroll;
+    scrollbar-width: none;
+    max-width: 280px;
+    min-width: 280px;
+}
+
+.watchlist-container::-webkit-scrollbar {
+  display: none;
+}
+
+.list-title-edit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 20px;
+    border-bottom: var(--clr-border);
+}
+
+.list-title-edit>h1{
+    font-size: 1em;
+    font-weight: 400;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.list-settings{
+    display: flex;
+    gap: 10px;
+}
+
+#up:active{
+    transition: transform 500ms ease ;
+    transform: rotate(-180deg);
+}
+
+#down:active{
+    transition: transform 500ms ease ;
+    transform: rotate(180deg);
+}
+
+.pos-arrow, .neg-arrow{
+    font-size: 1.3em;
+    cursor: pointer;
+    color: var(--clr-font);
+}
+
+.pos-arrow:hover{
+    color: var(--clr-primary);
+    
+}
+
+.neg-arrow:hover{
+    color: var(--clr-secondary);
+}
+
+.pos-menu, .neg-menu{
+    cursor: pointer;
+    font-size: 1.3em;
+    color: var(--clr-font);
+}
+
+.pos-menu:hover{
+    color: var(--clr-primary);
+}
+.neg-menu:hover{
+    color: var(--clr-secondary);
+}
+
+.list-stock-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    padding: 8px 20px 8px
+}
+
+.list-stock-wrapper:hover {
+    background-color: var(--clr-watchlist-hover);
+}
+
+.list-price{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 25%;
+    text-align: right;
+}
+
+.list-price>p{
+    margin: 0px;
+    font-size: .89em;
+}
+
+.graph-wrapper-wl{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.list-stock-wrapper>p{
+    font-weight: 700;
+    font-size: .9em;
+    width: 25%;
+}
+
+.watchlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--clr-border);
+    border-top: var(--clr-border);
+    margin: 12px 0px;
+}
+
+.watchlist-title {
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.pos-new-watchlist-button, .neg-new-watchlist-button {
+    color: var(--clr-font);
+    background-color: var(--clr-bp-bg);
+    font-size: 1.1em;;
+    cursor: pointer;
+    margin-right: 2px;
+}
+
+.pos-new-watchlist-button:hover {
+    color: var(--clr-primary);
+}
+
+.neg-new-watchlist-button:hover {
+    color: var(--clr-secondary);
+}
+
+.stock-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: var(--clr-border);
+}
+
+.stock-title>h1{
+    font-size: 1.2em;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.title-edit {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2em;
+    margin-bottom: 60px;
+} 
+
+.edit-list-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.edit-graph {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.pos-edit-list-symbol-delete, .neg-edit-list-symbol-delete {
+    font-size: 1.3em;
+    cursor: pointer;
+    color: var(--clr-font);
+}
+
+.pos-edit-list-symbol-delete:hover {
+    color: var(--clr-primary);
+}
+
+.neg-edit-list-symbol-delete:hover {
+    color: var(--clr-secondary);
+}
+
+.edit-symbols-title {
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: var(--clr-border);
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.edit-list-symbol-info {
+    border-bottom: var(--clr-border);
+}
+
+.edit-list-symbol-info:hover {
+    background-color: var(--clr-bg-alt);
+}
+
+.edit-list-symbol {
+    width: 5%;
+}
+
+.edit-list-price {
+    width: 10%;    
+}
+
+.edit-list-percent {
+    width: 15%;
+    text-align: right;
+}
+
+.edit-list-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.edit-list-title > p {
+    margin: 0px 0px 5px 0px;
+}
+
+.edit-list-title-edit {
+    background-color: var(--clr-bp-bg);
+    border: var(--clr-border);
+    color: var(--clr-font);
+    height: 30px;
+    border-radius: 5px;
+}
+
+.pos-edit-input, .neg-edit-input{
+    background-color: var(--clr-bg-alt);
+    border: none;
+    height: 2em;
+    color: var(--clr-font);
+    appearance: none;
+    border: var(--clr-border);
+    font-size: 1.5em;
+}
+
+.pos-edit-input:hover, .neg-edit-input:hover{
+    background-color: var(--clr-input-hover);
+}
+
+.pos-edit-input:focus{
+    outline: none;
+    background-color: var(--clr-bg);
+    border: 1px solid var(--clr-primary);
+    border-radius: 3px;
+}
+
+.neg-edit-input:focus{
+    outline: none;
+    background-color: var(--clr-bg);
+    border: 1px solid var(--clr-secondary);
+    border-radius: 3px;
+}
+
+.pos-save-button, .neg-save-button {
+    color: var(--clr-font);
+    font-size: 1em;
+    padding: 10px 25px;
+    height: fit-content;
+    border-radius: 3px;
+}
+
+
+.pos-save-button {
+    background-color: var(--clr-primary);
+}
+
+.pos-save-button:hover {
+    background-color: var(--clr-button-hover-pos);
+}
+
+.neg-save-button {
+    background-color: var(--clr-secondary);
+}
+
+.neg-save-button:hover {
+    background-color: var(--clr-button-hover-neg);
+}
+
+.edit-list-delete-button {
+    background-color: var(--clr-secondary);
+    height: fit-content;
+    padding: 5px 10px;
+    font-size: .9em;
+    border-radius: 5px;
+}
+
+.edit-list-delete-button:hover {
+    background-color: var(--clr-button-hover-neg);
+}
+
+.edit-delete-and-cancel {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.edit-delete-and-cancel > p {
+    margin: 0px;
+    cursor: pointer;
+}
