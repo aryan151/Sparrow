@@ -3,6 +3,7 @@ import { useSelector, useDispatch} from 'react-redux';
 import { deleteListSymbol } from "../../store/watchLists";  
 import { updateUserList, deleteUserList, setUserLists } from "../../store/watchLists";       
 import { MdDeleteOutline } from 'react-icons/md'; 
+import { setWatchListStocks } from '../../store/watchlistStocks';
 import Main from "../SingleStock/StockChart/main";     
     
 function Edit({list, setShowModal, userId}) {        
@@ -15,7 +16,7 @@ function Edit({list, setShowModal, userId}) {
     const [newListTitle, setNewListTitle] = useState(list.watchlistName) 
 
     let tickers = Object.keys(list.tickers);    
-
+  
 
     function handleTitleSave() {
         const updatedList = {
@@ -27,7 +28,7 @@ function Edit({list, setShowModal, userId}) {
 
     function handleListDelete() {
         dispatch(deleteUserList(list.id)).watchlistName(() => dispatch(setUserLists(userId))) 
-        setShowModal(false)  
+        setShowModal(false)    
 
     }
 
@@ -45,6 +46,7 @@ function Edit({list, setShowModal, userId}) {
             listId,
             ticker
         }))
+        
     }
 
 

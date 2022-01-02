@@ -36,7 +36,7 @@ function Item ({list, listName=false , isStocks=false, isPos, userId}){
         </div>  
         {showModal && (
           <Modal onClose={() => setShowModal(false)} isWatchList={true}>
-            <Edit setShowModal={setShowModal} list={list} userId={userId}/>   
+            <Edit setShowModal={setShowModal} tickers={tickers} list={list} userId={userId}/>   
           </Modal>
         )}
         {showList && (

@@ -1,29 +1,33 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";  
+import { useHistory } from "react-router-dom";  
 import { formatThousands } from "../StockStats/utils";
-import { useState } from "react"; 
-import { updateUserAsset, deleteUserAsset, addUserAsset } from "../../../store/userAssets"; 
-import {editBuyingPower} from '../../../store/session'  
+import { useState, useEffect } from "react";   
+import { updateUserAsset, deleteUserAsset, addUserAsset } from "../../../store/userAssets";  
+import {editBuyingPower} from '../../../store/session'     
+import { updateUser } from "../../../store/session";
 
 function BuyOrSell ({price, ticker, isPos}) {
+  const history = useHistory() 
     const dispatch = useDispatch() 
-    const buyingPower = useSelector(state => state?.session?.user?.buyingPower)  
+    const buyingPower = useSelector(state => state?.session?.user?.buyingPower)    
     const assets = useSelector(state => state?.userAssets)
     const userId = useSelector(state => state?.session?.user?.id)    
+    const currentUser = useSelector(state => state?.session?.user)    
     const asset = assets?.[ticker]  
     const [isBuy, setIsBuy] = useState(true);
     const [buyShares, setBuyShares] = useState(null)  
     const [sellShares, setSellShares] = useState(null)
     const [error, setError] = useState(null)             
+    const [user, setUser] = useState(currentUser) 
 
+
+    
     function handleOrder(){
- 
-
-
 
         if (isBuy) {  
             let totalCost = Number((buyShares * price).toFixed(2))   
             let shares, average, newBuyingPower;
-            if (totalCost > Number(buyingPower)) return setError('You do not have enough Buying Power')
+            if (totalCost > Number(buyingPower)) return setError('You do not have enough Buying Power')  
             if(buyShares === 0)return setError("Please enter an amount greater than 0")
             newBuyingPower = Number((Number(buyingPower) - totalCost).toFixed(2))
 
@@ -39,7 +43,7 @@ function BuyOrSell ({price, ticker, isPos}) {
                 shares = Number(buyShares)
                 average = Number(price)  
                 dispatch(addUserAsset({
-                    user_id: userId,
+                    user_id: userId, 
                     ticker,
                     shares,
                     average
@@ -48,6 +52,7 @@ function BuyOrSell ({price, ticker, isPos}) {
             dispatch(editBuyingPower(userId, newBuyingPower)) 
             setBuyShares(0)
             setError(null)
+            history.push('/dash')
         } else {
             if (asset) {
                 let totalCredit = Number((sellShares * price).toFixed(2))
@@ -112,12 +117,11 @@ function BuyOrSell ({price, ticker, isPos}) {
       
         <div className="bns-wrapper">
         <div className="bns-top">  
-        {console.log(buyingPower)}
           <p
             onClick={handleBNSBuy}
             className={isBuy ? `trade-active ${isPos}-bns` : "bns-click"}
           >
-            Buy {ticker}   {console.log(ticker)}
+            Buy {ticker}
           </p>
           {asset ? (
             <p

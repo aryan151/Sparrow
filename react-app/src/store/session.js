@@ -66,6 +66,8 @@ export const login = (email, password) => async (dispatch) => {
 
 }
 
+
+
 export const logout = () => async (dispatch) => {
   const response = await fetch('/api/auth/logout', {
     headers: {
@@ -119,6 +121,14 @@ export const editBuyingPower = (userId, newBuyingPower) => async (dispatch) => {
   dispatch(editBuyingPowerAction(newBuyingPower));
 }
 
+export const updateUser = (userId) => async (dispatch) => {
+  const currentUser = await fetch(`/api/users/${userId}`)
+  const userupdated = await currentUser.json() 
+
+  dispatch(setUser(userupdated))  
+  }    
+
+ 
 
 const initialState = {};
 export default function reducer(state = initialState, action) {
@@ -129,7 +139,7 @@ export default function reducer(state = initialState, action) {
     case REMOVE_USER:
       return { user: null }
     case EDIT_BUYING_POWER:
-      newState = { ...state };
+      newState = { ...state };  
       newState.buyingPower = action.buyingPower;
       return newState;           
     default:
