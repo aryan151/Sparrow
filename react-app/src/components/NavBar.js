@@ -1,7 +1,7 @@
-import {useState} from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import {useState, useEffect, useRef} from 'react';
+import { useDispatch, useSelector } from "react-redux"; 
 import { NavLink, useLocation } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton' 
+import LogoutButton from './auth/LogoutButton'   
 import Search from './Search';
 import NavDrop from './NavDropDown';
 import './NavBar.css'
@@ -15,6 +15,10 @@ const NavBar = () => {
 
   const session = useSelector(state => state.session);
   
+
+
+
+
 
   if (isLoginPage || isSignUpPage) {
     return null
@@ -50,7 +54,7 @@ const NavBar = () => {
             </NavLink>
               <Search />
               <div className='navbar-buttons'>
-                <LogoutButton/>  
+                <NavDrop/>   
               </div>
             </div>
         }

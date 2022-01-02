@@ -55,7 +55,7 @@ function App() {
         <ProtectedRoute path='/stocks/:ticker'>
             <SingleStock/>
         </ProtectedRoute>  
-        <ProtectedRoute path='/account' exact={true}>  
+        <ProtectedRoute path='/account' exact={true}>   
             <Account/>
         </ProtectedRoute>    
       </Switch>  

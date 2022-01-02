@@ -6,19 +6,22 @@ import {editBuyingPower} from '../../../store/session'
 
 function BuyOrSell ({price, ticker, isPos}) {
     const dispatch = useDispatch() 
-    const buyingPower = useSelector(state => state?.session?.user?.buyingPower)
+    const buyingPower = useSelector(state => state?.session?.user?.buyingPower)  
     const assets = useSelector(state => state?.userAssets)
     const userId = useSelector(state => state?.session?.user?.id)    
     const asset = assets?.[ticker]  
     const [isBuy, setIsBuy] = useState(true);
-    const [buyShares, setBuyShares] = useState(null)
+    const [buyShares, setBuyShares] = useState(null)  
     const [sellShares, setSellShares] = useState(null)
-    const [error, setError] = useState(null)           
+    const [error, setError] = useState(null)             
 
     function handleOrder(){
+ 
+
+
 
         if (isBuy) {  
-            let totalCost = Number((buyShares * price).toFixed(2))
+            let totalCost = Number((buyShares * price).toFixed(2))   
             let shares, average, newBuyingPower;
             if (totalCost > Number(buyingPower)) return setError('You do not have enough Buying Power')
             if(buyShares === 0)return setError("Please enter an amount greater than 0")
@@ -70,6 +73,9 @@ function BuyOrSell ({price, ticker, isPos}) {
         }
     }
 
+
+
+
     function sellAllShares(){
         let totalCredit = asset.shares * price
         let newBuyingPower = totalCredit + buyingPower
@@ -98,6 +104,9 @@ function BuyOrSell ({price, ticker, isPos}) {
 
       if (!charStr.match(/^[0-9]+$/)) e.preventDefault();
     }
+
+
+
 
     return (
       
