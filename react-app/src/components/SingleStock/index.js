@@ -5,7 +5,7 @@ import ReactLoading from 'react-loading'
 import Main from "./StockChart/main";  
 import Resolution from './ChartSize/index'  
 import KeyStatistics from './StockStats/keystats'
-import BuyOrSell from "./BuySellModule";  
+import BuyOrSell from "./BuySellModule/mainbuy";  
 import AddStock from "./AddStockWatch/StockList";   
 import Stories from '../Dashboard/Stories/stories'
 import Performance from './Performance/index'  

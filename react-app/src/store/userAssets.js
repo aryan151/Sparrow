@@ -32,7 +32,7 @@ const updateAssetAction = (asset) => {
 const deleteAssetAction = (ticker) => {
     return {
         type: DELETE_USER_ASSET,
-        ticker
+        ticker  
     };
 };
 

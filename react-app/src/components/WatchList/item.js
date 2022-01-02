@@ -19,10 +19,10 @@ function Item ({list, listName=false , isStocks=false, isPos, userId}){
     
   
     useEffect(() => {
-     
-            dispatch(setWatchListStocks(tickers))
-      
-    },[dispatch, tickers])        
+      (async () => {
+         await dispatch(setWatchListStocks(tickers))
+      })();
+     },[dispatch, tickers])      
    
     
     return (  

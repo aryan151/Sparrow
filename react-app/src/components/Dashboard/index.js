@@ -28,7 +28,7 @@ function Dash () {
     const [newListName, setNewListName] = useState('')     
 
     function createNewList() {  
-        const list = { user_id: user.id, watchlist_name: newListName } 
+        const list = { user_id: user.id, watchlist_name: newListName }     
         dispatch(addUserList(list, user.id))  
         setNewListName('')  
         setShowNewList(false)  

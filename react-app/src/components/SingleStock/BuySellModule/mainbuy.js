@@ -52,7 +52,7 @@ function BuyOrSell ({price, ticker, isPos}) {
             dispatch(editBuyingPower(userId, newBuyingPower)) 
             setBuyShares(0)
             setError(null)
-            history.push('/dash')
+            history.push('/dash')  
         } else {
             if (asset) {
                 let totalCredit = Number((sellShares * price).toFixed(2))

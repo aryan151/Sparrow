@@ -15,7 +15,7 @@ function Edit({list, setShowModal, userId}) {
 
     const [newListTitle, setNewListTitle] = useState(list.watchlistName) 
 
-    let tickers = Object.keys(list.tickers);    
+    let tickers = Object.keys(list.tickers);      
   
 
     function handleTitleSave() {
@@ -24,11 +24,11 @@ function Edit({list, setShowModal, userId}) {
             watchlist_name: newListTitle     
         }
         dispatch(updateUserList(updatedList)) 
-    }
+    }  
 
     function handleListDelete() {
         dispatch(deleteUserList(list.id)).watchlistName(() => dispatch(setUserLists(userId))) 
-        setShowModal(false)    
+        setShowModal(false)     
 
     }
 
@@ -45,7 +45,8 @@ function Edit({list, setShowModal, userId}) {
             id,
             listId,
             ticker
-        }))
+        }))  
+        setShowModal(false) 
         
     }
 
@@ -87,9 +88,8 @@ function Edit({list, setShowModal, userId}) {
                         </div>
                     ))}
             </div>
-            <div className='edit-delete-and-cancel'>
+            <div className='edit-delete-and-cancel'> 
                 <button className='edit-list-delete-button' onClick={handleListDelete}>Delete List</button>
-                <p onClick={() => setShowModal(false)}>Cancel</p>
             </div>
         </div>  
     )
