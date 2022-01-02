@@ -24,6 +24,7 @@ function Edit({list, setShowModal, userId}) {
             watchlist_name: newListTitle     
         }
         dispatch(updateUserList(updatedList)) 
+        setShowModal(false)  
     }  
 
     function handleListDelete() {
