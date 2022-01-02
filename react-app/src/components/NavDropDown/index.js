@@ -14,8 +14,18 @@ function NavDrop () {
     const onClick = () => setIsActive(!isActive);    
     const user = useSelector((state) => state?.session?.user);  
     const buyingPower = useSelector(state => state?.session?.user?.buyingPower)  
+    const graphdata = useSelector(state => state?.userAssets?.graphdata)   
     const assets = useSelector(state => state?.userAssets)  
     let total = 0 
+
+    // Object.keys(assets).forEach((key) => {
+    //     if (!assets[key].length) {  
+    //         for (const item in assets[key]) {
+    //             console.log(item) 
+    //         }
+           
+    //     }
+    // })
 
      
     const logoutButton = async () => {
@@ -26,7 +36,6 @@ function NavDrop () {
 
     return (
         <div className="dropDownContainer">   
-        {console.log(assets)}
             <div className="avatarContainer navAvatar" onClick={onClick}>
                 <p>Account</p> 
             </div>

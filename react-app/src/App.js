@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -13,14 +13,18 @@ import Dash from './components/Dashboard'
 import Account from './components/AccountSettings';
 import {fetchAllStocks} from './store/stocks'
 import { authenticate } from './store/session';
+import {setTheme} from './store/theme'  
+import './index.css'  
 
-function App() {
+function App() { 
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const theme = useSelector(state => state.theme)  
 
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      dispatch(setTheme()) 
       await dispatch(fetchAllStocks())
       setLoaded(true);
     })();
@@ -31,6 +35,7 @@ function App() {
   }  
 
   return (
+    <div className={`${theme} app`}> 
     <BrowserRouter>
       <NavBar />
       <Switch>
@@ -60,6 +65,7 @@ function App() {
         </ProtectedRoute>    
       </Switch>  
     </BrowserRouter>
+    </div>
   );
 }
 
