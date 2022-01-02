@@ -28,8 +28,8 @@ function Edit({list, setShowModal, userId}) {
     }  
 
     function handleListDelete() {
-        dispatch(deleteUserList(list.id)).watchlistName(() => dispatch(setUserLists(userId))) 
-        setShowModal(false)     
+        dispatch(deleteUserList(list.id)).then(() => dispatch(setUserLists(userId))).then(() => setShowModal(false)) 
+           
 
     }
 
@@ -57,7 +57,6 @@ function Edit({list, setShowModal, userId}) {
            
             <div className='title-edit'>
                 <div className='edit-list-title'>
-                    <p>List Title</p>
                     <input
                         type="text"
                         value={newListTitle}
