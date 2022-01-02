@@ -9,7 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import Splash from './components/SplashPage';
 import SingleStock from './components/SingleStock'
-import Dash from './components/Dashboard'  
+import Dash from './components/Dashboard/dash'  
 import Account from './components/AccountSettings';
 import {fetchAllStocks} from './store/stocks'
 import { authenticate } from './store/session';

@@ -4,14 +4,13 @@ import { useHistory } from 'react-router';
 import {addUserList} from '../../store/watchLists'
 import { setUserAssets } from '../../store/userAssets';  
 import { setGeneralStories } from '../../store/currentStories'    
-import { newUserList, setUserLists } from '../../store/watchLists';  
-import Watchlist from '../WatchList';  
+import { newUserList, setUserLists } from '../../store/watchLists';   
 import Main from '../SingleStock/StockChart/main';      
 import Resolution from '../SingleStock/ChartSize';    
 import ReactLoading from 'react-loading'
 import StockList from '../WatchList/stocklist';  
 import AllList from '../WatchList/alllists';
-import Stories from '../Dashboard/Stories/stories' 
+import Stories from './Stories/stories' 
 import { AiOutlinePlus } from 'react-icons/ai' 
 import './dash.css'  
 
@@ -31,7 +30,7 @@ function Dash () {
         const list = { user_id: user.id, watchlist_name: newListName }     
         dispatch(addUserList(list, user.id))  
         setNewListName('')  
-        setShowNewList(false)  
+        setShowNewList(false)    
     }
 
     useEffect(() => {
