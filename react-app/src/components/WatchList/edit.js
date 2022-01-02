@@ -46,8 +46,8 @@ function Edit({list, setShowModal, userId}) {
             id,
             listId,
             ticker
-        }))  
-        setShowModal(false) 
+        })).then(() => setShowModal(false)  )   
+        
         
     }
 

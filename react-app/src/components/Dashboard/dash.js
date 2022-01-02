@@ -88,7 +88,7 @@ function Dash () {
                         <div className={`new-list-buttons`}>
                             <button className={`new-list-edit`} onClick={createNewList}>Create WatchList</button>  
                             <button className={`new-list-cancel`} onClick={() => setShowNewList(false)}>Cancel</button>
-                        </div>  
+                        </div>    
                     </div>
 
                 )}
