@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch} from 'react-redux';  
 import { deleteListSymbol } from "../../store/watchLists";  
 import { updateUserList, deleteUserList, setUserLists } from "../../store/watchLists";       
-import { MdDeleteOutline } from 'react-icons/md'; 
+import { MdOutlineCancel } from 'react-icons/md'; 
 import { setWatchListStocks } from '../../store/watchlistStocks';
 import Main from "../SingleStock/StockChart/main";     
     
@@ -82,8 +82,8 @@ function Edit({list, setShowModal, userId}) {
                                         </div>
                                         <p className='edit-list-price'>{`$${graphData?.[ticker]?.[graphData[ticker].length - 1]?.price}`}</p>
                                         <p className={`${isPos(ticker)} edit-list-percent`}>{`${graphData?.[ticker]?.[graphData[ticker]?.length - 1][`%`]}%`}</p>
-                                        <MdDeleteOutline className={`${isPos(ticker)}-edit-list-symbol-delete`} onClick={() => handleDelete(ticker, list?.tickers[ticker]?.listId, list?.tickers[ticker]?.id)} />
-                                    </div>   
+                                        <MdOutlineCancel className={`${isPos(ticker)}-edit-list-symbol-delete`} onClick={() => handleDelete(ticker, list?.tickers[ticker]?.listId, list?.tickers[ticker]?.id)} />
+                                    </div>    
                                 </>
                             )}
                         </div>
