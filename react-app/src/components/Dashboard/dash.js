@@ -81,14 +81,14 @@ function Dash () {
             <StockList isPos={isPos}/>   
                 <div className={`watchlist-header`} >  
                     <h2 className={`watchlist-title`}>Lists</h2>
-                    <AiOutlinePlus className={`-new-watchlist-button`} onClick={() => setShowNewList(true)} />
-                </div>
+                    <AiOutlinePlus className={`newlistbutton`} onClick={() => setShowNewList(true)} />
+                </div> 
                 {showNewList && (
-                    <div className={`new-list-container`}>   
-                        <input className={`-new-list-input`} type="text" placeholder="List Name" value={newListName} onChange={(e) => setNewListName(e.target.value)} />
-                        <div className={`new-list-buttons`}>
-                            <button className={`new-list-edit`} onClick={createNewList}>Create WatchList</button>  
-                            <button className={`new-list-cancel`} onClick={() => setShowNewList(false)}>Cancel</button>
+                    <div className='newlistdrop'>   
+                        <input className='inputnewlist' type="text" placeholder="List Name" value={newListName} onChange={(e) => setNewListName(e.target.value)} />
+                        <div className='addlistbtns'>
+                            <button className='addlistedit' onClick={createNewList}>Create WatchList</button>  
+                            <button className='addlistcancel' onClick={() => setShowNewList(false)}>Cancel</button>
                         </div>    
                     </div>
 

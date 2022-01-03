@@ -33,7 +33,7 @@ function AddFunds ({user}) {
         if (!charStr.match(/^[0-9]+$/)) e.preventDefault();
       }
 
-
+ 
     return (
         <div>  
             <div className="accountlowwrapper">

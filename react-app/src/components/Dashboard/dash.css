@@ -128,6 +128,9 @@
     width: 25%;
 }
 
+
+/* Watchlist Add New */
+
 .watchlist-header {
     display: flex;
     justify-content: space-between;
@@ -142,21 +145,74 @@
     font-size: 1.1em;
 }
 
-.pos-new-watchlist-button, .neg-new-watchlist-button {
+.newlistbutton {
     color: var(--clr-font);
     background-color: var(--clr-bp-bg);
     font-size: 1.1em;;
     cursor: pointer;
     margin-right: 2px;
 }
-
-.pos-new-watchlist-button:hover {
+.newlistbutton:hover {
     color: var(--clr-primary);
 }
 
-.neg-new-watchlist-button:hover {
-    color: var(--clr-secondary);
+.newlistdrop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.inputnewlist{
+
+    border: none;
+    height: 2em;
+    font-size: 1em;  
+    appearance: none;
+    border: 1px solid var(--clr-font-alt);
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.inputnewlist:hover{
+    background-color: var(--clr-input-hover);
+}
+.inputnewlist:focus{  
+    outline: none;
+    background-color: var(--clr-bg);
+    border: 1px solid var(--clr-primary);
+    border-radius: 3px;
+}
+
+.addlistbtns{
+    display: flex; 
+    justify-content: space-around; 
+    margin-bottom: 15px;
+}
+
+.addlistedit{ 
+    font-size: .9em;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px; 
+}
+
+.addlistcancel {
+    color: red; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .stock-title {
     display: flex;
