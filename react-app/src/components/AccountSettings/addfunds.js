@@ -13,10 +13,10 @@ function AddFunds ({user}) {
 
 
     function depositFunds(){
-        if (depositAmount === "$0.00" || depositAmount === 0){
-          setError("Amount Has To Be Greater than Zero")
+        if (depositAmount === "$0.00" || depositAmount === +0){
+          alert("Amount Has To Be Greater than Zero")
         }else if(depositAmount > 1000000){
-          setError("We Cannot Hold That Much Cash")    
+          alert("We Cannot Hold That Much Cash")      
         }else{
           const buyingPower = +user.buyingPower + +depositAmount
           setError(null)
@@ -35,27 +35,33 @@ function AddFunds ({user}) {
 
 
     return (
-        <div> 
-            <p> Add Funds</p>  
-            {console.log(user.buyingPower)}  
-            <p> {formatThousands(user.buyingPower)}</p>
-            <div className="bp-input">
-              <div className="amount-cont">
-                <p>Amount</p>
-                {error && <p className="amount-err">{error}</p>}
-              </div>
-              <input
-                className={`-bp-input1`}
-                type="number"
-                placeholder="$0.00"
-                onChange={(e) => setDepositAmount(e.target.value)}
-                onKeyPress={(e) =>  preventLetters(e)}
-                value={depositAmount}
-              />
+        <div>  
+            <div className="accountlowwrapper">
+                <div className="accountlowcontainer">
+                    <div className="accounttitlecon">
+                        <h3 className="accounttitle">Available Cash</h3>
+                    </div>
+                    <div className="accountpart1cont">  
+                        <p className="accountpart2cont">Current Balance</p>
+                        <p className="accountpart3cont">${formatThousands(user.buyingPower)}</p>  
+                    </div> 
+                    <div className="accountpart1cont">   
+                        <p className="accountpart2cont">Deposit Funds</p>
+                        <input className="accountpart3cont" 
+                            type="number"
+                            placeholder="$0.00"
+                            onChange={(e) => setDepositAmount(e.target.value)}
+                            onKeyPress={(e) =>  preventLetters(e)}
+                            value={depositAmount}/>
+                    </div>
+                    <div className="yesbtnctr">
+                            <button type="button" className="yesbtnp2" onClick={depositFunds}>
+                                <h4 className="yesbtnp3">Confirm Deposit</h4>
+                            </button>
+                        </div>
+                </div>
             </div>
-            <button className={`-bp-button`} onClick={depositFunds}>
-              Deposit Funds
-            </button>
+            {error && <p className="amount-err">{error}</p>}
         </div>
     )
 }
