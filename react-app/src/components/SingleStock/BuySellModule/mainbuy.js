@@ -15,7 +15,7 @@ function BuyOrSell ({price, ticker, isPos}) {
     const currentUser = useSelector(state => state?.session?.user)    
     const asset = assets?.[ticker]  
     const [isBuy, setIsBuy] = useState(true);
-    const [buyShares, setBuyShares] = useState(null)  
+    const [buyShares, setBuyShares] = useState(0)   
     const [sellShares, setSellShares] = useState(null)
     const [error, setError] = useState(null)             
     const [user, setUser] = useState(currentUser) 
@@ -28,9 +28,8 @@ function BuyOrSell ({price, ticker, isPos}) {
             let totalCost = Number((buyShares * price).toFixed(2))   
             let shares, average, newBuyingPower;
             if (totalCost > Number(buyingPower)) return setError('You do not have enough Buying Power')  
-            if(buyShares === 0)return setError("Please enter an amount greater than 0")
-            newBuyingPower = Number((Number(buyingPower) - totalCost).toFixed(2))
-
+            if(!(buyShares > 0))return setError("Please enter an amount greater than 0")  
+            newBuyingPower = Number((Number(buyingPower) - totalCost).toFixed(2)) 
             if (asset) {
                 shares = Number(buyShares) + asset.shares
                 average = Number((asset.average + (buyShares / price)).toFixed(2))
