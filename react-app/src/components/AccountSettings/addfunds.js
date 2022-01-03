@@ -1,12 +1,16 @@
 import {editBuyingPower} from '../../store/session' 
 import {useState, useSelector} from 'react'
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import {formatThousands} from '../SingleStock/StockStats/utils'      
+import { updateUser } from '../../store/session';
+import {formatThousands} from '../SingleStock/StockStats/utils'       
 
 function AddFunds ({user}) {         
     const dispatch = useDispatch()  
     const [depositAmount, setDepositAmount] = useState('$0.00')
-    const [error, setError] = useState(null) 
+    const [error, setError] = useState(null)   
+     
+
 
     function depositFunds(){
         if (depositAmount === "$0.00" || depositAmount === 0){
@@ -17,7 +21,8 @@ function AddFunds ({user}) {
           const buyingPower = +user.buyingPower + +depositAmount
           setError(null)
           dispatch(editBuyingPower(user.id, buyingPower))
-          setDepositAmount("$0.00") 
+          setDepositAmount("$0.00")  
+          window.location.reload(false)
         }
       }
 
