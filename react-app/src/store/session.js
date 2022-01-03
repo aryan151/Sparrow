@@ -115,7 +115,7 @@ export const editBuyingPower = (userId, newBuyingPower) => async (dispatch) => {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(newBuyingPower)
+    body: JSON.stringify(newBuyingPower)  
   });
 
   dispatch(editBuyingPowerAction(newBuyingPower));

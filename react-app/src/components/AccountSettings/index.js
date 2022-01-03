@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch} from 'react-redux';
 import AddFunds from "./addfunds";  
 import Settings from "./settings"; 
 import './account.css'
 function Account () {
     const [toggle, setToggle] = useState(1)  
-    const user = useSelector(state => state.session.user)  
+    const user = useSelector(state => state.session.user)    
+
+    // useEffect(() => {
+
+    // })
+
 
     return (
         <div className='settings_main'>
@@ -19,7 +24,7 @@ function Account () {
                 </div>
             </div>
             <div> 
-                {toggle === 0 ? <AddFunds /> : <Settings/>}   
+                {toggle === 0 ? <AddFunds user={user} /> : <Settings/>}   
             </div>  
         </div>
 
