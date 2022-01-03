@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import React, { useRef } from "react"; 
 import { logout } from "../../store/session"   
 import './menu.css'      
+import { NavLink } from 'react-router-dom';
 import { useDetectOutsideClick } from "./NavUtils";
 import settings from './settings.svg' 
 
@@ -44,7 +45,7 @@ function NavDrop () {
                 className={`menu ${isActive ? "active" : "inactive"}`}
             >
                 <ul> 
-                    <li> 
+                    {/* <li> 
                         <div className='avatarReroute' >
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/percentage-growth.png"/>  
                         Assets 
@@ -55,12 +56,12 @@ function NavDrop () {
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/bonds.png"/> 
                         ${buyingPower} 
                         </div>  
-                    </li> 
-                    <li onClick={() => history.push('/account')}> 
-                        <div className='avatarReroute' >
+                    </li>  */}
+                    <li > 
+                        <NavLink className='avatarReroute' to={`/account`} >
                         <img src={settings} alt="Settings Icon" draggable="false" /> 
-                        Settings
-                        </div>  
+                        Account Details
+                        </NavLink>  
                     </li> 
                     <li className='borderTop' onClick={logoutButton}>
                         <p>Log Out</p> 

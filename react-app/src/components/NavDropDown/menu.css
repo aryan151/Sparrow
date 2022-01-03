@@ -3,6 +3,9 @@
     display: grid;
     place-items: center;
 }
+.avatarContainer:hover{
+  cursor: pointer;
+}
  
 .menu {
     background: #ffffff;
@@ -24,10 +27,6 @@
     transform: translateY(0);
 }
 
-.menu .bubbleArrow {
-  top: -7px;
-  right: 20px;
-}
 .menu ul {
     position: relative;
     list-style: none;
@@ -80,30 +79,3 @@
     border-top: 1px solid rgba(0, 0, 0, .2);
 } 
 
-.portfolio-details {
-    display: flex;
-    flex-direction: row;
-    margin: 10px 20px 10px 20px;  
-  }
-  
-  .portfolio-details h3 {
-    margin: 0;
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-  
-  .portfolio-info {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .avail-cash {
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .porfolio-value {
-    font-size: 14px;
-    border-bottom: 1px solid rgb(240, 231, 231);
-  }
