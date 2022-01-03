@@ -4,7 +4,7 @@ import AddFunds from "./addfunds";
 import Settings from "./settings"; 
 import './account.css'
 function Account () {
-    const [toggle, setToggle] = useState(0)  
+    const [toggle, setToggle] = useState(0)    
     const user = useSelector(state => state.session.user)     
 
 

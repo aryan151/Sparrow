@@ -52,7 +52,8 @@ function BuyOrSell ({price, ticker, isPos}) {
             dispatch(editBuyingPower(userId, newBuyingPower)) 
             setBuyShares(0)
             setError(null)
-            history.push('/dash')   
+            // history.push('/dash')     
+            window.location.reload(false) 
         } else {
             if (asset) {
                 let totalCredit = Number((sellShares * price).toFixed(2))
@@ -67,11 +68,11 @@ function BuyOrSell ({price, ticker, isPos}) {
                         id: asset.id,
                         shares,
                         average: asset.average
-                    }))
+                    })) 
                 }
                 dispatch(editBuyingPower(userId, newBuyingPower))
                 setSellShares(0)
-                setError(null)
+                setError(null) 
             } else {
                 setError(`You do not own any shares of ${ticker}`)
             }
