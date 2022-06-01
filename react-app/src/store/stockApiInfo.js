@@ -1,3 +1,17 @@
+/**
+Dynamic Algorithm to turn (Finnhub.io) API information into graphable points: 
+
+Sparrow uses multiple APIs to get up to date information on stocks.
+The info that is getting send back needs to be turned into an object that can be feed as data to the Recharts library to allow for the graph to be presented on each page.  
+This needs to be able to do it for just one stock, or a user's entire portfolio (assortment of random stocks)  
+
+Below is a dynamic alogrithm that is able to to take any resolution (timeframe), figure out whether it's a weekend or not (can only get API information when the stock market is open, i.e. not weekends),
+take one or 100 stock symbols, translate UNIX timestamps (what was being given from the API) into user friendly times, and match all of the stock candles data to those times.
+I was able to package all of this into one function which is used from the redux stores to gather all of the information  needed, all while keeping the redux stores clean and readable.
+    
+ **/
+  
+
 
 //Function A: 
 //Finnhub.io API gives Time(from & to) via UNIX timestamps 
@@ -33,7 +47,7 @@ const newDateNoWeekend = () => {
     return currentDate
 }
 //Function C: 
-//Returns a workable timestamp for current datetime for graphs     
+//Helper function to return proper timestamp for the current date and time 
 const getCurrentDate = () => {
     let checkWeekend = newDateNoWeekend()
     const currentDate = +new Date(checkWeekend)
@@ -41,7 +55,7 @@ const getCurrentDate = () => {
 }
 
 //Function D: 
-//Returns a timestamp for resolution of graph (Day, Week, Month, Year)
+//Helper function to return the proper timestamp for either the past day, week, month, or year 
 const getFromDate = (timeFrame) => {
     let checkWeekend = newDateNoWeekend()
     const currentDate = new Date(checkWeekend);
@@ -180,14 +194,17 @@ const fetchMultipleStocksCandles = async (symbols, resolution, fromDate, current
 const user_assets_graph_points = (graphData, userAssets) => {
     const { assetsCandleNums, times, resolution } = graphData
     let len;
-
+    // finds the shortest length array in the assetsCandleNums object to use as our stopping point later. 
     if (Object.values(assetsCandleNums).length) {
         len = Object.values(assetsCandleNums).reduce((val, next) => {
             if (next.length < val.length) val = next;
             return val
         }).length
         const stockData = []
-    
+        
+        // counts from 0 to the stopping point above, for each 'i' we loop through the assets from the data gathered from the query
+        // we find the amount of shares the user has for that specific asset, and multiply their shares by the value in the array
+        // add it to a total for all shares they own at that point in time, and push it into the stockData array as well as the timestamp for that specific 'i'
         for (let i = 0; i < len; i++) {
             let total = 0.00
             for (let asset in assetsCandleNums) {
